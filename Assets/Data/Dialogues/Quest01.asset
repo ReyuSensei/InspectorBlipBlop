@@ -17,7 +17,7 @@ MonoBehaviour:
   objectives:
   - type: 1
     targetID: findvictim
-    description: "Baixa per l'ascensor i troba la v\xEDctima."
+    description: "Baixa les escales i troba la v\xEDctima."
   - type: 0
     targetID: collectscrew
     description: Recolecta les peces que han caigut.

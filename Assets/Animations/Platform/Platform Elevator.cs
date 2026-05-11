@@ -6,7 +6,7 @@ public class PlatformElevator : MonoBehaviour
 {
 
     [SerializeField] private Animator anim;
-    [SerializeField] private bool isDown = true;
+    private bool isDown = true;
     private bool isInside = false;
 
     private void OnTriggerEnter(Collider other)
