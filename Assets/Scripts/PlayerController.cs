@@ -5,6 +5,8 @@ using Unity.Cinemachine;
 using System.Runtime.CompilerServices;
 using NUnit.Framework.Internal.Filters;
 using System.Linq;
+using System.Collections.Generic;
+using System.Collections;
 
 public class PlayerController : MonoBehaviour
 {
@@ -94,6 +96,7 @@ public class PlayerController : MonoBehaviour
     private InputAction meleeAction;
     private InputAction rangedAction;
     private InputAction interactAction;
+    private InputAction pauseAction;
 
     [Header("CAMERA CONTROL")]
     private Camera mainCamera;
@@ -173,11 +176,41 @@ public class PlayerController : MonoBehaviour
     private Transform projectileSpawnPoint;
     private bool isRangedAttacking;
 
+    [Header("AUTOAIM")]
+    [SerializeField]
+    private float enemyDetectionRadius;
+    [SerializeField]
+    private LayerMask enemyLayer;
+
     [Header("INTERACT")]
     [SerializeField]
     private float interactDistance;
     [SerializeField]
     private LayerMask interactLayer;
+
+    [Header("SOUND")]
+    [SerializeField]
+    private AudioClip stepClip;
+    public AudioSource audioSource;
+
+    [Header("RAGDOLL")]
+    private List<Rigidbody> ragdollRbs = new List<Rigidbody>();
+    private List<Collider> ragdollCols = new List<Collider>();
+
+    private void InitRagdoll()
+    {
+        //BUSCO TODOS LOS RBs DEL OBJETO
+        Rigidbody[] rbs = GetComponentsInChildren<Rigidbody>();
+        //PARA CADA RB ME QUEDO CON SU COLLIDER, DESACTIVO LOS 2 Y LOS GUARDO EN LAS LISTAS
+        foreach (Rigidbody rb in rbs)
+        {
+            rb.isKinematic = true;
+            ragdollRbs.Add(rb);
+            Collider c = rb.GetComponent<Collider>();
+            c.enabled = false;
+            ragdollCols.Add(c);
+        }
+    }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -186,6 +219,7 @@ public class PlayerController : MonoBehaviour
         playerInput = GetComponent<PlayerInput>();
         anim = GetComponentInChildren<Animator>();
         mainCamera = Camera.main;
+        
 
         moveAction = playerInput.actions["Move"];
         sprintAction = playerInput.actions["Sprint"];
@@ -197,6 +231,7 @@ public class PlayerController : MonoBehaviour
         meleeAction = playerInput.actions["MeleeAttack"];
         rangedAction = playerInput.actions["RangedAttack"];
         interactAction = playerInput.actions["Interact"];
+        pauseAction = playerInput.actions["Pause"];
 
         originalHeight = characterController.height;
         originalCenter = characterController.center;
@@ -210,6 +245,10 @@ public class PlayerController : MonoBehaviour
 
         GameManager.instance.playerController = this; //  LE DIGO AL GAMEMANAGER QUE EL GESTOR DE PLAYERCONTROLLER SOY YO, CREANDO UNA REFERENCIA INDIRECTA
         gamepad = Gamepad.current;  //ASIGNO EL GAMEPAD ACTUAL A LA VARIABLE DE GAMEPAD
+
+        audioSource = GetComponent<AudioSource>();
+
+        InitRagdoll();
     }
 
     // Update is called once per frame
@@ -247,7 +286,16 @@ public class PlayerController : MonoBehaviour
         HandleRangedInput();
         HandlePush();
         HandleInteract();
+        HandlePause();
 
+    }
+
+    private void HandlePause()
+    {
+        if (pauseAction.WasPressedThisFrame())
+        {
+            GameManager.instance.gameplayUI.ShowPause();
+        }
     }
 
     //DECLARACION DE FUNCIONES
@@ -315,8 +363,11 @@ public class PlayerController : MonoBehaviour
             characterController.Move(moveVelocity.normalized * actualSpeed * Time.deltaTime);
         }
 
-        gravityVelocity.y = gravityVelocity.y + (gravity * Time.deltaTime);
-        characterController.Move(gravityVelocity * Time.deltaTime);
+        if (transform.parent == null)
+        {
+            gravityVelocity.y = gravityVelocity.y + (gravity * Time.deltaTime);
+            characterController.Move(gravityVelocity * Time.deltaTime);
+        }
 
         anim.SetFloat("_speed", actualSpeed);
         anim.SetBool("_push", isPushing);
@@ -331,7 +382,8 @@ public class PlayerController : MonoBehaviour
             gravityVelocity.y = -0.5f;
             jumpsCount = 0;
         }
-        anim.SetBool("_grounded", isGrounded);
+        if (transform.parent == null)
+            anim.SetBool("_grounded", isGrounded);
     }
 
     //CONTROL DE SALTO
@@ -486,7 +538,7 @@ public class PlayerController : MonoBehaviour
         return dot > blockDotAngleThreshold;
     }
 
-    public void DoDamage(Collider other)
+    public void DoDamage(GameObject other)
     {
         //COMPRUEBO SI EL OBJETO QUE HA HECHO OVERLAP TIENE LA ETIQUETA DE DAMAGE
         if (other.CompareTag("Damage"))
@@ -514,12 +566,12 @@ public class PlayerController : MonoBehaviour
             //LE RESTO A LA VIDA EL DAÑO QUE DEBERÍA RECIBIR
             currentHealth = currentHealth - damageValue;
             //currentHealth -= dmg.damageValue; MISMO CODIGO PERO SIN TENER QUE ESCRIBIR EL CURRENTHEALTH OTRA VEZ, SE USA -= += ETC
-            GameManager.instance.UpdateHealthBar(currentHealth / maxHealth);
+            //GameManager.instance.UpdateHealthBar(currentHealth / maxHealth);
             Debug.Log(currentHealth);
 
             if (currentHealth <= 0)
             {
-                //MUERTO!!!!!!!!!!!!
+                EnableRagdoll();
             }
             else
             {
@@ -672,12 +724,70 @@ public class PlayerController : MonoBehaviour
     public void EventFireRangeWeapon()
     {
         //CREO UN NUEVO PROYECTIL GENERANDO UNA INSTANCIA DE PREFAB, EN UN PUNTO CONCRETO Y CON UNA ROTACION CONCRETA
-        Instantiate(projectilePrefab, projectileSpawnPoint.transform.position, Quaternion.identity); //QUATERNION.IDENTITY CREA UN QUATERNION CON LA ROTACION ORIGINAL DEL PREFAB
+        GameObject projectileGO = Instantiate(projectilePrefab, projectileSpawnPoint.transform.position, Quaternion.identity); //QUATERNION.IDENTITY CREA UN QUATERNION CON LA ROTACION ORIGINAL DEL PREFAB
+        Projectile projectile = projectileGO.GetComponent<Projectile>();
+        if(GameManager.instance.autoAimActive == true)
+        {
+            Collider[] enemies = Physics.OverlapSphere(transform.position, enemyDetectionRadius, enemyLayer);
+            if(enemies.Length > 0)
+            {
+                float distance = enemyDetectionRadius;  //COMPARO LA DISTANCIA DE CADA ENEMIGO CON LA LONGITUD DEL RADIO DE DETECCION
+                int enemyIndex = 0;
+                for(int i = 0; i < enemies.Length; i ++)    //POR CADA ELEMENTO DEL INDEX
+                {
+                    if(Vector3.Distance(transform.position, enemies[0].transform.position) < distance)   //COMPRUEBO QUE LA DISTANCIA DEL ENEMIGO SEA MENOR AL RANGO DE DETECCION
+                    {
+                        distance = Vector3.Distance(transform.position, enemies[0].transform.position);  //CONVIERTO LA DISTANCIA DEL ENEMIGO EN EL PUNTO DE COMPARACION PARA LA DISTANCIA DEL SIGUIENTE
+                        enemyIndex = i;
+                    }
+                }
+                projectile.attackDirection = (enemies[enemyIndex].transform.position - transform.position).normalized;
+            }
+            else
+            {
+                projectile.attackDirection = transform.forward;
+            }
+        }
+        else
+        {
+            projectile.attackDirection = transform.forward;
+        }
+        if(projectile != null)
+        {
+            projectile.AttackNow();
+        }
     }
 
     public void EventHideRangeWeapon()
     {
         rangedWeapon.SetActive(false);
         isRangedAttacking = false;
+    }
+
+    public void EventStep()
+    {
+        Play3DSound(stepClip);
+    }
+
+    public void Play3DSound(AudioClip clip)
+    {
+        audioSource.PlayOneShot(clip);
+    }
+
+    [ContextMenu("Ragdoll")]
+    private void EnableRagdoll()
+    {
+        playerInput.enabled = false;
+        //DESACTIVO EL ANIMATOR
+        anim.enabled = false;
+        //ACTIVO TODOS LOS RBs Y COLs DEL RAGDOLL
+        foreach(Rigidbody rb in ragdollRbs)
+        {
+            rb.isKinematic = false;
+        }
+        foreach(Collider c in ragdollCols)
+        {
+            c.enabled = true;
+        }
     }
 }

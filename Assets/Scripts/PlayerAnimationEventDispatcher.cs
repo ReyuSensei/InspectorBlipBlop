@@ -36,4 +36,9 @@ public class PlayerAnimationEventDispatcher : MonoBehaviour
     {
         transform.parent.SendMessage("EventHideRangeWeapon");
     }
+
+    public void EventStep()
+    {
+        transform.parent.SendMessage("EventStep");
+    }
 }

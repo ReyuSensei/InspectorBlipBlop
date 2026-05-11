@@ -3,17 +3,22 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
+using UnityEngine.UI;
 
 public class Loading : MonoBehaviour
 {
     [SerializeField]
     private TextMeshProUGUI progressText;
 
+
+
     void Start()
     {
         //ARRANCO LA CORUTINA DE CARGA ASINCRONA
         //UNA CORUTINA SE VA EJECUTANDO DE FORMA SEMIPARALELA (SE EJECUTA CUANDO ENCUENTRA HUECO)
         StartCoroutine(LoadAsync());
+
+        //currentBackground = 
     }
 
 
@@ -28,7 +33,7 @@ public class Loading : MonoBehaviour
         //LA CORUTINA SE EJECUTARA MIENTRAS NO SE HAYA FINALIZADO TODA LA CARGA
         while(asyncLoad.isDone == false)
         {
-            progressText.text = "" + (asyncLoad.progress * 100) + "%";
+            progressText.text = "Loading... " + (asyncLoad.progress * 100) + "%";
             //LA CARGA ASINCRONA NUNCA LLEGA AL 100%
             //PARA DECIDIR QUE ACTIVAMOS LA ESCENA CARGADA LO TENEMOS QUE HACER AL LLEGAR AL 90%
             if(asyncLoad.progress >= 0.9f)

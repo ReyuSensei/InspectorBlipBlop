@@ -34,6 +34,10 @@ public class DialogueManager : MonoBehaviour
 
     public void ChooseChoice(Choice choice)
     {
+        if (choice.questToStart != null)
+        {
+            QuestManager.instance.TryStartQuest(choice.questToStart);
+        }
         //SI LA OPCION OFRECE UNA QUEST SE DEBERIA INICIAR
         if(choice.nextNode == null)
         {

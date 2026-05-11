@@ -22,4 +22,11 @@ public class MainMenu : MonoBehaviour
 #endif
     }
 
+    public void Main()
+    {
+        //LE DIGO AL SINGLETON LA SIGUIENTE ESCENA DESPUES DE ESTA
+        GameManager.instance.nextLevelToLoad = 2;
+        //CARGO LA PANTALLA DE LOADING
+        SceneManager.LoadScene(0);
+    }
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
     //VARIABLES DE COMPORTAMIENTO
-    enum E_ATTACKMOVEMENT {FORWARD, PARABOLIC} //UN ENUMERADOR FUNCIONA COMO UN LISTADO DE ETIQUETAS
+    enum E_ATTACKMOVEMENT {FORWARD, PARABOLIC, STATIC} //UN ENUMERADOR FUNCIONA COMO UN LISTADO DE ETIQUETAS
     [SerializeField]
     private E_ATTACKMOVEMENT attackMovementMode;
     [SerializeField]
@@ -12,7 +12,7 @@ public class Projectile : MonoBehaviour
     private Rigidbody rb;
 
     //VARIABLES DE ATAQUE
-    private Vector3 attackDirection;
+    public Vector3 attackDirection;
     [SerializeField]
     private float attackForce;
     [SerializeField]
@@ -21,7 +21,7 @@ public class Projectile : MonoBehaviour
     private List<string> damageTags;
     private Collider col;
     [SerializeField]
-    private float parabolicColliderSizeMultiplier;  
+    private float parabolicColliderSizeMultiplier;
 
     //SISTEMA DE PARTICULAS
     [SerializeField]
@@ -30,24 +30,39 @@ public class Projectile : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        if (attackMovementMode == E_ATTACKMOVEMENT.STATIC)
+        {
+            return;
+        }
+
         Destroy(gameObject, timeToDestroy); //GAMEOBJECT HACE REFERENCIA AL GAMEOBJECT QUE TENGA ESTE SCRIPT
         rb = GetComponent<Rigidbody>();
         col = GetComponent<Collider>();
-        if(attackMovementMode == E_ATTACKMOVEMENT.FORWARD)  //SI VOY A LANZAR RECTO HACIA ADELANTE...
+    }
+    public void AttackNow()
+    {
+        if (rb==null)
         {
-            //NOTA PARA MI YO DEL FUTURO: CUANDO HAGA EL AUTOAIM TENDRE QUE MODIFICAR EL ATTACKDIRECTION CUANDO ESTE ACTIVO
-            attackDirection = GameManager.instance.playerController.transform.forward;
-            rb.isKinematic = false;
+            rb = GetComponent<Rigidbody>();
+        }
+        if (col == null)
+        {
+            col = GetComponent<Collider>();
+        }
+        if (attackMovementMode == E_ATTACKMOVEMENT.FORWARD)  //SI VOY A LANZAR RECTO HACIA ADELANTE...
+        {
+            //EL ATAQUE SIEMPRE SERÁ HACIA DELANTE EXCEPTO SI TIENE AUTOAIM, QUE -SI ES EL PLAYER- BUSCARÁ AL ENEMIGO MAS CERCANO
+            //attackDirection = GameManager.instance.playerController.transform.forward;
+            rb.isKinematic = false; //DESACTIVO EL KINEMATIC Y LA GRAVEDAD PARA QUE NO CAIGA PERO SE MUEVA POR LA FUERZA DE DISPARO
             rb.useGravity = false;
             rb.AddForce(attackDirection * attackForce, ForceMode.Impulse);
         }
-        if(attackMovementMode == E_ATTACKMOVEMENT.PARABOLIC)  //SI VOY A LANZAR CON UN MOVIMIENTO PARABOLICO...
+        if (attackMovementMode == E_ATTACKMOVEMENT.PARABOLIC)  //SI VOY A LANZAR CON UN MOVIMIENTO PARABOLICO...
         {
             attackDirection = (GameManager.instance.playerController.transform.forward + (GameManager.instance.playerController.transform.up * 1).normalized * attackForce);
             rb.isKinematic = false;
             rb.useGravity = true;
             rb.AddForce(attackDirection * attackForce, ForceMode.Impulse);
-
         }
     }
     private void OnTriggerEnter(Collider other)
@@ -71,17 +86,24 @@ public class Projectile : MonoBehaviour
         {
             if(damageTags.Contains(other.tag) == true)
             {
-                other.gameObject.SendMessage("DoDamage", other);
-                Destroy(gameObject);
+                other.gameObject.SendMessage("DoDamage", gameObject);
+                if (attackMovementMode == E_ATTACKMOVEMENT.FORWARD)
+                {
+                    Destroy(gameObject);
+                }
                 Instantiate(vfxPrefab, transform.position, Quaternion.identity);
             }
             else
             {
-                Destroy(gameObject);
-                Instantiate(vfxPrefab, transform.position, Quaternion.identity);
+                if (attackMovementMode == E_ATTACKMOVEMENT.FORWARD)
+                {
+                    Destroy(gameObject);
+                }
+                if (vfxPrefab != null)
+                {
+                    Instantiate(vfxPrefab, transform.position, Quaternion.identity);
+                }
             }
         }
-        
-
     }
 }

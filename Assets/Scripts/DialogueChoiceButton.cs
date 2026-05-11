@@ -8,6 +8,6 @@ public class DialogueChoiceButton : MonoBehaviour
 
     public void ChooseChoice()
     {
-
+        DialogueManager.instance.ChooseChoice(choice);
     }
 }
