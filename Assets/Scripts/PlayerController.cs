@@ -187,6 +187,9 @@ public class PlayerController : MonoBehaviour
     private float interactDistance;
     [SerializeField]
     private LayerMask interactLayer;
+    [SerializeField] private bool isOnBlockedZone;
+    [SerializeField] 
+    private GameObject codePanel;
 
     [Header("SOUND")]
     [SerializeField]
@@ -196,6 +199,8 @@ public class PlayerController : MonoBehaviour
     [Header("RAGDOLL")]
     private List<Rigidbody> ragdollRbs = new List<Rigidbody>();
     private List<Collider> ragdollCols = new List<Collider>();
+
+
 
     private void InitRagdoll()
     {
@@ -287,12 +292,13 @@ public class PlayerController : MonoBehaviour
         HandlePush();
         HandleInteract();
         HandlePause();
+        HandleCode();
 
     }
 
     private void HandlePause()
     {
-        if (pauseAction.WasPressedThisFrame())
+        if (pauseAction.WasPressedThisFrame() && !codePanel.activeInHierarchy)
         {
             GameManager.instance.gameplayUI.ShowPause();
         }
@@ -788,6 +794,35 @@ public class PlayerController : MonoBehaviour
         foreach(Collider c in ragdollCols)
         {
             c.enabled = true;
+        }
+    }
+
+    public void OnTriggerEnter(Collider col)
+    {
+        if (col.CompareTag("BlockedZone"))
+        {
+            isOnBlockedZone = true;
+        }
+    }
+
+    public void OnTriggerExit(Collider col)
+    {
+        if (col.CompareTag("BlockedZone"))
+        {
+            isOnBlockedZone = false;
+        }
+    }
+
+    public void HandleCode()
+    {
+        if (isOnBlockedZone && interactAction.WasPressedThisFrame() && !codePanel.activeInHierarchy)
+        {
+            codePanel.SetActive(true);
+            GameManager.instance.StopGameTime();
+        } else if(isOnBlockedZone && interactAction.WasPressedThisFrame() && codePanel.activeInHierarchy)
+        {
+            codePanel.SetActive(false);
+            GameManager.instance.StartGameTime();
         }
     }
 }

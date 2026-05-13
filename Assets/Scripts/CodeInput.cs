@@ -1,11 +1,16 @@
+using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 using TMPro;
+using UnityEngine;
+using UnityEngine.UIElements;
 
 public class CodeInput : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI codigo;
+    [SerializeField] private GameObject codePanel;
     [SerializeField] private string codigoSecreto;
+    [SerializeField] private GameObject blockedDoor;
+
 
     void Start()
     {
@@ -16,6 +21,7 @@ public class CodeInput : MonoBehaviour
     void Update()
     {
         HandleCode();
+
     }
 
     public void Number0()
@@ -75,13 +81,42 @@ public class CodeInput : MonoBehaviour
             if(codigo.text == codigoSecreto)
         
             {
+                BlockedDoor doorScript = blockedDoor.GetComponent<BlockedDoor>();
+                doorScript.isBlocked = false;
                 codigo.color = Color.green;
-            } else
+                StartCoroutine(HandleCorrect());
+
+
+            } else if(codigo.text != "XXXX")
             {
-                codigo.text = null;
+                StartCoroutine(HandleError());
             }
 
         }
+    }
+
+    private IEnumerator HandleError()
+    {
+        string error = "XXXX";
+        codigo.text = error;
+        codigo.color = Color.red;
+        yield return new WaitForSeconds(0.3f);
+        codigo.color = new Color(codigo.color.r, codigo.color.g, codigo.color.b, 0);
+        yield return new WaitForSeconds(0.1f);
+        codigo.color = new Color(codigo.color.r, codigo.color.g, codigo.color.b, 255);
+        yield return new WaitForSeconds(0.3f);
+        codigo.color = new Color(codigo.color.r, codigo.color.g, codigo.color.b, 0);
+        yield return new WaitForSeconds(0.1f);
+        codigo.color = new Color(codigo.color.r, codigo.color.g, codigo.color.b, 255);
+        yield return new WaitForSeconds(1f);
+        codigo.color = Color.white;
+        codigo.text = null;
+    }
+
+    private IEnumerator HandleCorrect()
+    {
+        yield return new WaitForSeconds(1.5f);
+        Destroy(codePanel);
     }
 
 }
