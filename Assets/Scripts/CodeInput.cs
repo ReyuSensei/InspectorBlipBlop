@@ -10,11 +10,13 @@ public class CodeInput : MonoBehaviour
     [SerializeField] private GameObject codePanel;
     [SerializeField] private string codigoSecreto;
     [SerializeField] private GameObject blockedDoor;
+    public bool deactive;
 
 
     void Start()
     {
         codigo.text = null;
+        deactive = false;
     }
 
 
@@ -76,7 +78,7 @@ public class CodeInput : MonoBehaviour
 
     void HandleCode()
     {
-        if(codigo.text.Length == 4) 
+        if(codigo.text.Length == 4 && !deactive) 
         { 
             if(codigo.text == codigoSecreto)
         
@@ -116,7 +118,8 @@ public class CodeInput : MonoBehaviour
     private IEnumerator HandleCorrect()
     {
         yield return new WaitForSeconds(1.5f);
-        Destroy(codePanel);
+        codePanel.SetActive(false);
+        deactive = true;
     }
 
 }

@@ -308,7 +308,7 @@ public class PlayerController : MonoBehaviour
     //tipo_de_acceso tipo_variable_retorno nombre_funcion (parametros_entrada)
     private void HandleMovement()
     {
-        if (isBlocking == true || isMeleeAttacking == true || isRangedAttacking == true)
+        if (isBlocking == true || isMeleeAttacking == true || isRangedAttacking == true || codePanel.activeInHierarchy)
         {
             return;
         }
@@ -395,7 +395,7 @@ public class PlayerController : MonoBehaviour
     //CONTROL DE SALTO
     private void HandleJump()
     {
-        if (jumpAction.WasPressedThisFrame() && jumpsCount < maxJumps && isDashing == false && isInvincible == false && isBlocking == false && isRangedAttacking == false && isMeleeAttacking == false && !DialogueManager.instance.isActive)
+        if (jumpAction.WasPressedThisFrame() && jumpsCount < maxJumps && isDashing == false && isInvincible == false && isBlocking == false && isRangedAttacking == false && isMeleeAttacking == false && !DialogueManager.instance.isActive && !codePanel.activeInHierarchy)
         {
             //CALCULO EL TIEMPO QUE TARDARÍA EN LLEGAR A LA ALTURA MÁXIMA (APEX)
             //NO HACEMOS EL CÁLCULO FÍSICO REAL, HACEMOS UNA APROXIMACIÓN A LA FÓRMULA
@@ -446,7 +446,7 @@ public class PlayerController : MonoBehaviour
     //CONTROL DE DASH
     private void HandleDash()
     {
-        if (dashAction.WasPressedThisFrame() && isDashing == false && isInvincible == false && isBlocking == false && isRangedAttacking == false && isMeleeAttacking == false && !DialogueManager.instance.isActive)
+        if (dashAction.WasPressedThisFrame() && isDashing == false && isInvincible == false && isBlocking == false && isRangedAttacking == false && isMeleeAttacking == false && !DialogueManager.instance.isActive && !codePanel.activeInHierarchy)
         {
             isDashing = true;
             dashTime = 0;
@@ -473,7 +473,7 @@ public class PlayerController : MonoBehaviour
 
     private void HandleCrouch()
     {
-        if (crouchAction.IsPressed() && isInvincible == false && isBlocking == false && isRangedAttacking == false && isMeleeAttacking == false && !DialogueManager.instance.isActive)
+        if (crouchAction.IsPressed() && isInvincible == false && isBlocking == false && isRangedAttacking == false && isMeleeAttacking == false && !DialogueManager.instance.isActive && !codePanel.activeInHierarchy)
         {
             isCrouching = true;
         }
@@ -505,7 +505,7 @@ public class PlayerController : MonoBehaviour
     private void HandleBlock()
     {
         //SI INTENTO BLOQUEAR Y NO ESTOY BLOQUEANDO Y NO ESTOY EN COOLDOWN
-        if(blockAction.WasPressedThisFrame() && isBlocking == false && blockCooldownTimer <= 0 && isDashing == false && isGrounded == true && isInvincible == false && isCrouching == false && isRangedAttacking == false && isMeleeAttacking == false && !DialogueManager.instance.isActive)
+        if(blockAction.WasPressedThisFrame() && isBlocking == false && blockCooldownTimer <= 0 && isDashing == false && isGrounded == true && isInvincible == false && isCrouching == false && isRangedAttacking == false && isMeleeAttacking == false && !DialogueManager.instance.isActive && !codePanel.activeInHierarchy)
         {
             isBlocking = true;
             blockTimer = blockDuration;
@@ -815,14 +815,14 @@ public class PlayerController : MonoBehaviour
 
     public void HandleCode()
     {
-        if (isOnBlockedZone && interactAction.WasPressedThisFrame() && !codePanel.activeInHierarchy)
+        CodeInput codeScript = codePanel.GetComponent<CodeInput>();
+
+        if (isOnBlockedZone && interactAction.WasPressedThisFrame() && !codePanel.activeInHierarchy && !codeScript.deactive)
         {
-            codePanel.SetActive(true);
-            GameManager.instance.StopGameTime();
-        } else if(isOnBlockedZone && interactAction.WasPressedThisFrame() && codePanel.activeInHierarchy)
+            codePanel.SetActive(true);            
+        } else if(isOnBlockedZone && interactAction.WasPressedThisFrame() && codePanel.activeInHierarchy && !codeScript.deactive)
         {
             codePanel.SetActive(false);
-            GameManager.instance.StartGameTime();
         }
     }
 }
