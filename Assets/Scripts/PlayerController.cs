@@ -671,7 +671,7 @@ public class PlayerController : MonoBehaviour
 
     private void HandleMeleeInput()
     {
-        if(meleeAction.WasPressedThisFrame() && !isMeleeAttacking && !isRangedAttacking && !isBlocking && !isDashing && isGrounded && !DialogueManager.instance.isActive)
+        if(meleeAction.WasPressedThisFrame() && !isMeleeAttacking && !isRangedAttacking && !isBlocking && !isDashing && isGrounded && !DialogueManager.instance.isActive && !codePanel.activeInHierarchy)
         {
             isMeleeAttacking = true;
             anim.SetTrigger("_melee");
@@ -680,7 +680,7 @@ public class PlayerController : MonoBehaviour
 
     private void HandleRangedInput()
     {
-        if(rangedAction.WasPressedThisFrame() && !isMeleeAttacking && !isRangedAttacking && !isBlocking && !isDashing && isGrounded && !DialogueManager.instance.isActive)
+        if(rangedAction.WasPressedThisFrame() && !isMeleeAttacking && !isRangedAttacking && !isBlocking && !isDashing && isGrounded && !DialogueManager.instance.isActive && !codePanel.activeInHierarchy)
         {
             isRangedAttacking = true;
             anim.SetTrigger("_ranged");

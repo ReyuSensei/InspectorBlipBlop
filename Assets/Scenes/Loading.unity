@@ -677,9 +677,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RandomImageGenerator
   images:
-  - {fileID: 21300000, guid: b40ccfa83cec7f24a9b06bb197a0df75, type: 3}
-  - {fileID: 21300000, guid: 3fc1585ae68575b4c9221f732cac9c92, type: 3}
-  - {fileID: 21300000, guid: b50d21c6e32f69b4f956cd9c294e3d5b, type: 3}
+  - {fileID: 21300000, guid: 8fd5f9b0a3a496e46840ec84adb7b742, type: 3}
   image: {fileID: 508846335}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

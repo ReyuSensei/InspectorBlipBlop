@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Node
   portrait: {fileID: 21300000, guid: 27ff1d845ae3f5846a7d8f22f6a4a01f, type: 3}
   animCtrl: {fileID: 0}
-  speaker: Dr.Pufferstein
+  speaker: Dr. Pufferstein
   message: "I don\u2019t even know how you\u2019re capable of doing this so easily."
   choices:
   - choiceText: Tell everyone to come here. I need to ask some questions to you all.
