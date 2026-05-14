@@ -9,7 +9,7 @@ public class Quest : ScriptableObject
     public List<QuestObjective> objectives;
 
 }
-public enum E_OBJECTIVE_TYPE { COLLECT, REACHLOCATION, HIT, PUSHOBJECT }
+public enum E_OBJECTIVE_TYPE { COLLECT, REACHLOCATION, INTERACT, PUSHOBJECT }
 
 [System.Serializable]   //ME PERMITE REPRESENTAR UNA CLASE QUE NO SEA UN COMPONENTE EN EL EDITOR
 public class QuestObjective

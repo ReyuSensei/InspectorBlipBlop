@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd7636deaaf7aa245be74b7815d9a839, type: 3}
+  m_Name: Dialogue.003.A1
+  m_EditorClassIdentifier: Assembly-CSharp::Node
+  portrait: {fileID: 21300000, guid: f3a01a73fe3a1ce429f8b17dfe78583c, type: 3}
+  animCtrl: {fileID: 0}
+  speaker: John
+  message: "I\u2019m really not in the mood\u2026 I wish I had my comfort Spacesuit
+    figurine with me right now."
+  choices:
+  - choiceText: If I find it for you, will you answer my questions?
+    nextNode: {fileID: 11400000, guid: ee015c4d9047a1347898944e6943de8b, type: 2}
+    questToStart: {fileID: 0}
+  - choiceText: "Sure. Do you know anything about\u2026"
+    nextNode: {fileID: 11400000, guid: 279aa2a7f1b61734a8a34742b41c12a3, type: 2}
+    questToStart: {fileID: 0}
+  endsDialogue: 0
