@@ -369,11 +369,11 @@ public class PlayerController : MonoBehaviour
             characterController.Move(moveVelocity.normalized * actualSpeed * Time.deltaTime);
         }
 
-        if (transform.parent == null)
-        {
+        //if (transform.parent == null)
+        //{
             gravityVelocity.y = gravityVelocity.y + (gravity * Time.deltaTime);
             characterController.Move(gravityVelocity * Time.deltaTime);
-        }
+        //}
 
         anim.SetFloat("_speed", actualSpeed);
         anim.SetBool("_push", isPushing);

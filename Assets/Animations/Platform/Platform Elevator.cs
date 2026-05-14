@@ -19,14 +19,12 @@ public class PlatformElevator : MonoBehaviour
                 anim.SetTrigger("_up");
                 isDown = false;
                 isInside = true;
-
             }
             else if (isDown == false && !isInside)
             {
                 anim.SetTrigger("_down");
                 isDown = true;
             }
-     
         }
     }
 
@@ -35,10 +33,6 @@ public class PlatformElevator : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             isInside = false;
-        
-
-
         }
     }
-
 }
