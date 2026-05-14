@@ -15,7 +15,7 @@ public class CodeInput : MonoBehaviour
 
     void Start()
     {
-        codigo.text = null;
+        codigo.text = "";
         deactive = false;
     }
 
@@ -78,7 +78,7 @@ public class CodeInput : MonoBehaviour
 
     void HandleCode()
     {
-        if(codigo.text.Length == 4 && !deactive) 
+        if(codigo != null && codigo.text != null && codigo.text.Length == 4 && !deactive) 
         { 
             if(codigo.text == codigoSecreto)
         
@@ -112,7 +112,7 @@ public class CodeInput : MonoBehaviour
         codigo.color = new Color(codigo.color.r, codigo.color.g, codigo.color.b, 255);
         yield return new WaitForSeconds(1f);
         codigo.color = Color.white;
-        codigo.text = null;
+        codigo.text = "";
     }
 
     private IEnumerator HandleCorrect()
