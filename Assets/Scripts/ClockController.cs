@@ -9,6 +9,14 @@ public class ClockController : MonoBehaviour
     [SerializeField] private GameObject panel;
     [SerializeField] private float velocity;
     [SerializeField] private PlayerController player;
+    [SerializeField] private float minHour;
+    [SerializeField] private float maxHour;
+    [SerializeField] private float minMinute;
+    [SerializeField] private float maxMinute;
+    [SerializeField] private float actualHourZ;
+    [SerializeField] private float actualMinuteZ;
+    [SerializeField] private Animator anim;
+    public bool puzzleSolved = false;
     private PlayerInput playerInput;
     private InputAction moveAction;
     private Vector2 moveInput;
@@ -28,13 +36,13 @@ public class ClockController : MonoBehaviour
     }
 
     public void bttEON()
-    { 
-        bttE.SetActive(true);
+    {
+        if (!puzzleSolved) bttE.SetActive(true);
     }
 
     public void bttEOFF()
     {
-        bttE.SetActive(false);
+        if (!puzzleSolved) bttE.SetActive(false);
     }
 
     void HandleMinutes()
@@ -57,6 +65,21 @@ public class ClockController : MonoBehaviour
 
     void HandlePuzzle()
     {
+        actualHourZ = hour.transform.eulerAngles.z;
+        actualMinuteZ = minutes.transform.eulerAngles.z;
 
+        actualHourZ = (actualHourZ + 360) % 360;
+        actualMinuteZ = (actualMinuteZ + 360) % 360;
+
+        if (actualHourZ > minHour && actualHourZ < maxHour)
+        {
+            if (actualMinuteZ > minMinute && actualMinuteZ < maxMinute)
+            {
+                bttE.SetActive(false);
+                anim.SetTrigger("_open");
+                puzzleSolved = true;
+                panel.SetActive(false);
+            }
+        }
     }
 }
