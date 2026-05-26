@@ -10,6 +10,7 @@ TagManager:
   - Enemy
   - BlockedZone
   - ClockZone
+  - LockboxZone
   layers:
   - Default
   - TransparentFX

@@ -1,24 +1,29 @@
 fileFormatVersion: 2
-guid: 7b76eb6e25d9f1744b388ee91add9379
+guid: e25ed25bb69fb98489223fa0c980742b
 ModelImporter:
   serializedVersion: 24200
   internalIDToNameTable: []
   externalObjects:
   - first:
-      type: UnityEngine:Material
+      type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
-      name: Blob
-    second: {fileID: 2100000, guid: 8ea6ea459fcb4624b8e579369083328a, type: 2}
+      name: DefaultMaterial_Base_color
+    second: {fileID: 2800000, guid: c2983fe1441f014498b9fcf5b3e9d112, type: 3}
   - first:
-      type: UnityEngine:Material
+      type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
-      name: Cristal
-    second: {fileID: 2100000, guid: e00ff941c4b50d647855287e99d3008c, type: 2}
+      name: DefaultMaterial_Metallic
+    second: {fileID: 2800000, guid: bcdbac38c5d8faf4a973d0ad62237bec, type: 3}
   - first:
-      type: UnityEngine:Material
+      type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
-      name: Encimera
-    second: {fileID: 2100000, guid: 023baba65985917448d850eccfe916a8, type: 2}
+      name: DefaultMaterial_Normal
+    second: {fileID: 2800000, guid: 18827a27d9845fc47a387876f4af5e20, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: DefaultMaterial_Roughness
+    second: {fileID: 2800000, guid: 586638f7674a7eb4899031552e99c5e7, type: 3}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -83,7 +88,7 @@ ModelImporter:
     secondaryUVMinLightmapResolution: 40
     secondaryUVMinObjectScale: 1
     secondaryUVPackMargin: 4
-    useFileScale: 1
+    useFileScale: 0
     strictVertexDataChecks: 0
   tangentSpace:
     normalSmoothAngle: 60

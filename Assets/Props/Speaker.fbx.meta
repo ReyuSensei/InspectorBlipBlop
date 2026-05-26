@@ -1,24 +1,19 @@
 fileFormatVersion: 2
-guid: 7b76eb6e25d9f1744b388ee91add9379
+guid: 0b6f91974d7340546ab92cc3e7de052f
 ModelImporter:
   serializedVersion: 24200
   internalIDToNameTable: []
   externalObjects:
   - first:
-      type: UnityEngine:Material
+      type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
-      name: Blob
-    second: {fileID: 2100000, guid: 8ea6ea459fcb4624b8e579369083328a, type: 2}
+      name: Speaker (1)_Material.001_BaseMap
+    second: {fileID: 2800000, guid: 038ac42effe3988459c6b79914a3124d, type: 3}
   - first:
-      type: UnityEngine:Material
+      type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
-      name: Cristal
-    second: {fileID: 2100000, guid: e00ff941c4b50d647855287e99d3008c, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Encimera
-    second: {fileID: 2100000, guid: 023baba65985917448d850eccfe916a8, type: 2}
+      name: Speaker (1)_Material.001_Normal
+    second: {fileID: 2800000, guid: 18c685c03a4a170438996b1b82cb0365, type: 3}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -83,7 +78,7 @@ ModelImporter:
     secondaryUVMinLightmapResolution: 40
     secondaryUVMinObjectScale: 1
     secondaryUVPackMargin: 4
-    useFileScale: 1
+    useFileScale: 0
     strictVertexDataChecks: 0
   tangentSpace:
     normalSmoothAngle: 60

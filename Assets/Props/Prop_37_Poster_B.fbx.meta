@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 7b76eb6e25d9f1744b388ee91add9379
+guid: aa5118cb3467aa24eb706ffb5ce0338f
 ModelImporter:
   serializedVersion: 24200
   internalIDToNameTable: []
@@ -7,18 +7,8 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Blob
-    second: {fileID: 2100000, guid: 8ea6ea459fcb4624b8e579369083328a, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Cristal
-    second: {fileID: 2100000, guid: e00ff941c4b50d647855287e99d3008c, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Encimera
-    second: {fileID: 2100000, guid: 023baba65985917448d850eccfe916a8, type: 2}
+      name: UV'S_POSTER_B
+    second: {fileID: 2100000, guid: 5be99a16cfa940048acb154feaf81493, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -83,7 +73,7 @@ ModelImporter:
     secondaryUVMinLightmapResolution: 40
     secondaryUVMinObjectScale: 1
     secondaryUVPackMargin: 4
-    useFileScale: 1
+    useFileScale: 0
     strictVertexDataChecks: 0
   tangentSpace:
     normalSmoothAngle: 60

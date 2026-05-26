@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -47,7 +49,7 @@ public class ClockController : MonoBehaviour
 
     void HandleMinutes()
     {
-        if (moveInput.y != 0 && panel.activeInHierarchy)
+        if (moveInput.y != 0 && panel.activeInHierarchy && !puzzleSolved)
         {
             float rotationAmount = moveInput.y * velocity * Time.deltaTime;
             minutes.transform.Rotate(0, 0, -rotationAmount);
@@ -56,7 +58,7 @@ public class ClockController : MonoBehaviour
 
     void HandleHours()
     {
-        if (moveInput.x != 0 && panel.activeInHierarchy)
+        if (moveInput.x != 0 && panel.activeInHierarchy && !puzzleSolved)
         {
             float rotationAmount = moveInput.x * velocity * Time.deltaTime;
             hour.transform.Rotate(0, 0, -rotationAmount);
@@ -73,13 +75,18 @@ public class ClockController : MonoBehaviour
 
         if (actualHourZ > minHour && actualHourZ < maxHour)
         {
-            if (actualMinuteZ > minMinute && actualMinuteZ < maxMinute)
+            if (actualMinuteZ > minMinute && actualMinuteZ < maxMinute && !puzzleSolved)
             {
-                bttE.SetActive(false);
-                anim.SetTrigger("_open");
                 puzzleSolved = true;
-                panel.SetActive(false);
+                StartCoroutine(openClockWait());
             }
         }
+    }
+    IEnumerator openClockWait()
+    {
+        yield return new WaitForSeconds(1.5f);
+        bttE.SetActive(false);
+        anim.SetTrigger("_open");
+        panel.SetActive(false);
     }
 }

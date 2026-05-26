@@ -191,6 +191,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private GameObject codePanel;
     private bool isOnClockZone;
     [SerializeField] private GameObject clockPanel;
+    private bool isOnLockZone;
+    [SerializeField] private GameObject lockPanel;
 
     [Header("SOUND")]
     [SerializeField]
@@ -295,12 +297,13 @@ public class PlayerController : MonoBehaviour
         HandlePause();
         HandleCode();
         HandleClock();
+        HandleLock();
 
     }
 
     private void HandlePause()
     {
-        if (pauseAction.WasPressedThisFrame() && !codePanel.activeInHierarchy && !clockPanel.activeInHierarchy)
+        if (pauseAction.WasPressedThisFrame() && !codePanel.activeInHierarchy && !clockPanel.activeInHierarchy && !lockPanel.activeInHierarchy)
         {
             GameManager.instance.gameplayUI.ShowPause();
         }
@@ -310,7 +313,7 @@ public class PlayerController : MonoBehaviour
     //tipo_de_acceso tipo_variable_retorno nombre_funcion (parametros_entrada)
     private void HandleMovement()
     {
-        if (isBlocking == true || isMeleeAttacking == true || isRangedAttacking == true || codePanel.activeInHierarchy || clockPanel.activeInHierarchy)
+        if (isBlocking == true || isMeleeAttacking == true || isRangedAttacking == true || codePanel.activeInHierarchy || clockPanel.activeInHierarchy || lockPanel.activeInHierarchy)
         {
             return;
         }
@@ -397,7 +400,7 @@ public class PlayerController : MonoBehaviour
     //CONTROL DE SALTO
     private void HandleJump()
     {
-        if (jumpAction.WasPressedThisFrame() && jumpsCount < maxJumps && isDashing == false && isInvincible == false && isBlocking == false && isRangedAttacking == false && isMeleeAttacking == false && !DialogueManager.instance.isActive && !codePanel.activeInHierarchy && !clockPanel.activeInHierarchy)
+        if (jumpAction.WasPressedThisFrame() && jumpsCount < maxJumps && isDashing == false && isInvincible == false && isBlocking == false && isRangedAttacking == false && isMeleeAttacking == false && !DialogueManager.instance.isActive && !codePanel.activeInHierarchy && !clockPanel.activeInHierarchy && !lockPanel.activeInHierarchy)
         {
             //CALCULO EL TIEMPO QUE TARDARÍA EN LLEGAR A LA ALTURA MÁXIMA (APEX)
             //NO HACEMOS EL CÁLCULO FÍSICO REAL, HACEMOS UNA APROXIMACIÓN A LA FÓRMULA
@@ -448,7 +451,7 @@ public class PlayerController : MonoBehaviour
     //CONTROL DE DASH
     private void HandleDash()
     {
-        if (dashAction.WasPressedThisFrame() && isDashing == false && isInvincible == false && isBlocking == false && isRangedAttacking == false && isMeleeAttacking == false && !DialogueManager.instance.isActive && !codePanel.activeInHierarchy && !clockPanel.activeInHierarchy)
+        if (dashAction.WasPressedThisFrame() && isDashing == false && isInvincible == false && isBlocking == false && isRangedAttacking == false && isMeleeAttacking == false && !DialogueManager.instance.isActive && !codePanel.activeInHierarchy && !clockPanel.activeInHierarchy && !lockPanel.activeInHierarchy)
         {
             isDashing = true;
             dashTime = 0;
@@ -475,7 +478,7 @@ public class PlayerController : MonoBehaviour
 
     private void HandleCrouch()
     {
-        if (crouchAction.IsPressed() && isInvincible == false && isBlocking == false && isRangedAttacking == false && isMeleeAttacking == false && !DialogueManager.instance.isActive && !codePanel.activeInHierarchy && !clockPanel.activeInHierarchy)
+        if (crouchAction.IsPressed() && isInvincible == false && isBlocking == false && isRangedAttacking == false && isMeleeAttacking == false && !DialogueManager.instance.isActive && !codePanel.activeInHierarchy && !clockPanel.activeInHierarchy && !lockPanel.activeInHierarchy)
         {
             isCrouching = true;
         }
@@ -507,7 +510,7 @@ public class PlayerController : MonoBehaviour
     private void HandleBlock()
     {
         //SI INTENTO BLOQUEAR Y NO ESTOY BLOQUEANDO Y NO ESTOY EN COOLDOWN
-        if(blockAction.WasPressedThisFrame() && isBlocking == false && blockCooldownTimer <= 0 && isDashing == false && isGrounded == true && isInvincible == false && isCrouching == false && isRangedAttacking == false && isMeleeAttacking == false && !DialogueManager.instance.isActive && !codePanel.activeInHierarchy && !clockPanel.activeInHierarchy)
+        if(blockAction.WasPressedThisFrame() && isBlocking == false && blockCooldownTimer <= 0 && isDashing == false && isGrounded == true && isInvincible == false && isCrouching == false && isRangedAttacking == false && isMeleeAttacking == false && !DialogueManager.instance.isActive && !codePanel.activeInHierarchy && !clockPanel.activeInHierarchy && !lockPanel.activeInHierarchy)
         {
             isBlocking = true;
             blockTimer = blockDuration;
@@ -673,7 +676,7 @@ public class PlayerController : MonoBehaviour
 
     private void HandleMeleeInput()
     {
-        if(meleeAction.WasPressedThisFrame() && !isMeleeAttacking && !isRangedAttacking && !isBlocking && !isDashing && isGrounded && !DialogueManager.instance.isActive && !codePanel.activeInHierarchy && !clockPanel.activeInHierarchy)
+        if(meleeAction.WasPressedThisFrame() && !isMeleeAttacking && !isRangedAttacking && !isBlocking && !isDashing && isGrounded && !DialogueManager.instance.isActive && !codePanel.activeInHierarchy && !clockPanel.activeInHierarchy && !lockPanel.activeInHierarchy)
         {
             isMeleeAttacking = true;
             anim.SetTrigger("_melee");
@@ -682,7 +685,7 @@ public class PlayerController : MonoBehaviour
 
     private void HandleRangedInput()
     {
-        if(rangedAction.WasPressedThisFrame() && !isMeleeAttacking && !isRangedAttacking && !isBlocking && !isDashing && isGrounded && !DialogueManager.instance.isActive && !codePanel.activeInHierarchy && !clockPanel.activeInHierarchy)
+        if(rangedAction.WasPressedThisFrame() && !isMeleeAttacking && !isRangedAttacking && !isBlocking && !isDashing && isGrounded && !DialogueManager.instance.isActive && !codePanel.activeInHierarchy && !clockPanel.activeInHierarchy && !lockPanel.activeInHierarchy)
         {
             isRangedAttacking = true;
             anim.SetTrigger("_ranged");
@@ -812,6 +815,13 @@ public class PlayerController : MonoBehaviour
             controller.bttEON();
             isOnClockZone = true;
         }
+
+        if (col.CompareTag("LockboxZone"))
+        {
+            LockBox lController = lockPanel.GetComponent<LockBox>();
+            lController.bttEON();
+            isOnLockZone = true;
+        }
     }
 
     public void OnTriggerExit(Collider col)
@@ -827,6 +837,13 @@ public class PlayerController : MonoBehaviour
             controller.bttEOFF();
             isOnClockZone = false;
         }
+
+        if (col.CompareTag("LockboxZone"))
+        {
+            LockBox lController = lockPanel.GetComponent<LockBox>();
+            lController.bttEOFF();
+            isOnLockZone = false;
+        }
     }
 
 
@@ -841,18 +858,35 @@ public class PlayerController : MonoBehaviour
         } else if(isOnBlockedZone && interactAction.WasPressedThisFrame() && codePanel.activeInHierarchy && !codeScript.deactive)
         {
             codePanel.SetActive(false);
-        }
+        } 
+
     }
 
     public void HandleClock()
     {
-        if (isOnClockZone && interactAction.WasPressedThisFrame() && !clockPanel.activeInHierarchy)
+        ClockController clockScript = clockPanel.GetComponent<ClockController>();
+
+        if (isOnClockZone && interactAction.WasPressedThisFrame() && !clockPanel.activeInHierarchy && !clockScript.puzzleSolved)
         {
             clockPanel.SetActive(true);
         }
-        else if (isOnClockZone && interactAction.WasPressedThisFrame() && clockPanel.activeInHierarchy)
+        else if (isOnClockZone && interactAction.WasPressedThisFrame() && clockPanel.activeInHierarchy && !clockScript.puzzleSolved)
         {
             clockPanel.SetActive(false);
+        }
+    }
+
+    public void HandleLock()
+    {
+        LockBox lockScript = lockPanel.GetComponent<LockBox>();
+
+        if (isOnLockZone && interactAction.WasPressedThisFrame() && !lockPanel.activeInHierarchy && !lockScript.puzzleSolved)
+        {
+            lockPanel.SetActive(true);
+        }
+        else if (isOnLockZone && interactAction.WasPressedThisFrame() && lockPanel.activeInHierarchy && !lockScript.puzzleSolved)
+        {
+            lockPanel.SetActive(false);
         }
     }
 }

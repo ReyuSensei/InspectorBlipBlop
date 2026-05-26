@@ -1,24 +1,29 @@
 fileFormatVersion: 2
-guid: 7b76eb6e25d9f1744b388ee91add9379
+guid: 5b4fc18770f2d0145a985238d3da0044
 ModelImporter:
   serializedVersion: 24200
   internalIDToNameTable: []
   externalObjects:
   - first:
-      type: UnityEngine:Material
+      type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
-      name: Blob
-    second: {fileID: 2100000, guid: 8ea6ea459fcb4624b8e579369083328a, type: 2}
+      name: K_props_Base_color
+    second: {fileID: 2800000, guid: d8ec720ffda55fb4fb9e6db57b559628, type: 3}
   - first:
-      type: UnityEngine:Material
+      type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
-      name: Cristal
-    second: {fileID: 2100000, guid: e00ff941c4b50d647855287e99d3008c, type: 2}
+      name: K_props_Metallic
+    second: {fileID: 2800000, guid: e023ad4126641644497a29ca16afe7da, type: 3}
   - first:
-      type: UnityEngine:Material
+      type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
-      name: Encimera
-    second: {fileID: 2100000, guid: 023baba65985917448d850eccfe916a8, type: 2}
+      name: K_props_Normal
+    second: {fileID: 2800000, guid: 4a83e1f25c41ab2489af41620a72a68a, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: K_props_Roughness
+    second: {fileID: 2800000, guid: e82939b36d885df4f9dc41e6ab348ef7, type: 3}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -83,7 +88,7 @@ ModelImporter:
     secondaryUVMinLightmapResolution: 40
     secondaryUVMinObjectScale: 1
     secondaryUVPackMargin: 4
-    useFileScale: 1
+    useFileScale: 0
     strictVertexDataChecks: 0
   tangentSpace:
     normalSmoothAngle: 60
