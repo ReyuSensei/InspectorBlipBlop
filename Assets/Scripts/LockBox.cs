@@ -64,19 +64,19 @@ public class LockBox : MonoBehaviour
 
     public void bttEOFF()
     {
-        bttE.SetActive(false);
+        if(!puzzleSolved) bttE.SetActive(false);
     }
 
     public void bttEON()
     {
-        bttE.SetActive(true);
+        if(!puzzleSolved) bttE.SetActive(true);
     }
 
     IEnumerator codeCorrect()
     {
         bttAnim.SetTrigger("_on");
         yield return new WaitForSeconds(2f);
-        bttEOFF();
+        bttE.SetActive(false);
         lockPanel.SetActive(false);
         anim.SetTrigger("_open");
         

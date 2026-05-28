@@ -47,30 +47,6 @@ public class PlayerController : MonoBehaviour
     private Quaternion rotation;
     [SerializeField]
     private float rotationSpeed;
-    [SerializeField]
-    private float jumpHeight;
-    [SerializeField]
-    private float jumpDistance;
-    [SerializeField]
-    private int maxJumps;
-    private int jumpsCount;
-
-    //VARIABLES DE SALTO QUE SERÁN CALCULADAS
-    private float timeToApex;
-    private float initialVelocity;
-    private float requiredGravity;
-
-    [Header("DASH")]
-    private bool isDashing;
-    [SerializeField]
-    private float dashSpeed;
-    [SerializeField]
-    private float dashDuration; //EL TIEMPO QUE TIENE QUE DURAR EL DASH
-    private float dashTime; //EL TIEMPO QUE LLEVO HACIENDO EL DASH 
-    private Vector3 dashDirection;
-    [SerializeField]
-    private AnimationCurve dashCurve = AnimationCurve.EaseInOut(0, 0, 1, 1);
-    private float dashCurveMultiplier;
 
     [Header("CROUCH")]
     [SerializeField]
@@ -108,30 +84,6 @@ public class PlayerController : MonoBehaviour
     private CinemachineCamera isometricCam;
     private bool orbitalCamActive = true;
 
-    [Header("HEALTH")]
-    [SerializeField]
-    private float maxHealth;
-    private float currentHealth;
-    private bool isInvincible;
-    [SerializeField]
-    private float invincibleTime;   //INDICA EL TIEMPO QUE EL JUGADOR SERA INVENCIBLE
-    private float invincibleTimer;  //INDICA CUANTO TIEMPO LLEVA SIENDO INVENCIBLE EL JUGADOR
-
-    [Header("ATTACK BLOCK")]
-    private bool isBlocking;
-    [SerializeField]
-    private float blockDuration;
-    [SerializeField]
-    private float blockCooldownDuration;
-    private float blockTimer;
-    private float blockCooldownTimer;
-    [SerializeField]
-    private GameObject blockSocket; //PLACEHOLDER PARA UN ENEMIGO O DAMAGE DEALER
-    [SerializeField, Range(0,1)]
-    private float blockDamageReduction;
-    [SerializeField, Range(-1, 1)]
-    private float blockDotAngleThreshold;
-
     [Header("KICK")]
     [SerializeField]
     private float minKickForce;
@@ -160,28 +112,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private LayerMask pushLayer;
 
-    [Header("MELEE ATTACK")]
-    [SerializeField]
-    private GameObject meleeWeapon;
-    [SerializeField]
-    private Collider meleeCollider;
-    private bool isMeleeAttacking;
-
-    [Header("RANGED ATTACK")]
-    [SerializeField]
-    private GameObject rangedWeapon;
-    [SerializeField]
-    private GameObject projectilePrefab;
-    [SerializeField]
-    private Transform projectileSpawnPoint;
-    private bool isRangedAttacking;
-
-    [Header("AUTOAIM")]
-    [SerializeField]
-    private float enemyDetectionRadius;
-    [SerializeField]
-    private LayerMask enemyLayer;
-
     [Header("INTERACT")]
     [SerializeField]
     private float interactDistance;
@@ -203,6 +133,8 @@ public class PlayerController : MonoBehaviour
     private List<Rigidbody> ragdollRbs = new List<Rigidbody>();
     private List<Collider> ragdollCols = new List<Collider>();
 
+    private Coroutine esperaCoroutine;
+    [SerializeField] private GameObject glass;
 
 
     private void InitRagdoll()
@@ -231,25 +163,12 @@ public class PlayerController : MonoBehaviour
 
         moveAction = playerInput.actions["Move"];
         sprintAction = playerInput.actions["Sprint"];
-        jumpAction = playerInput.actions["Jump"];
-        cameraSwitchAction = playerInput.actions["CameraSwitch"];
-        dashAction = playerInput.actions["Dash"];
         crouchAction = playerInput.actions["Crouch"];
-        blockAction = playerInput.actions["Block"];
-        meleeAction = playerInput.actions["MeleeAttack"];
-        rangedAction = playerInput.actions["RangedAttack"];
         interactAction = playerInput.actions["Interact"];
         pauseAction = playerInput.actions["Pause"];
 
         originalHeight = characterController.height;
         originalCenter = characterController.center;
-        currentHealth = maxHealth;
-
-        blockSocket.SetActive(false);
-        meleeWeapon.SetActive(false);
-        meleeCollider = meleeWeapon.GetComponentInChildren<Collider>();
-        meleeCollider.enabled = false;
-        rangedWeapon.SetActive(false);
 
         GameManager.instance.playerController = this; //  LE DIGO AL GAMEMANAGER QUE EL GESTOR DE PLAYERCONTROLLER SOY YO, CREANDO UNA REFERENCIA INDIRECTA
         gamepad = Gamepad.current;  //ASIGNO EL GAMEPAD ACTUAL A LA VARIABLE DE GAMEPAD
@@ -262,42 +181,21 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //GESTION DE CONTADORES
-
-        if (isInvincible == true)
-        {
-            invincibleTimer = invincibleTimer - Time.deltaTime;
-            if (invincibleTimer <= 0)
-            {
-                isInvincible = false;
-            }
-        }
-        /*
-         if(invincibleTimer > 0)
-        {
-           invincibleTimer = invincibleTimer - Time.deltaTime;
-        }
-        else
-        {
-            isInvincible = false;
-        }
-        */
-
         CheckGrounded();
         HandleMovement();
-        HandleJump();
         HandleCamera();
-        HandleDash();
         HandleCrouch();
-        HandleBlock();
-        HandleMeleeInput();
-        HandleRangedInput();
         HandlePush();
         HandleInteract();
         HandlePause();
         HandleCode();
         HandleClock();
         HandleLock();
+        
+        if (esperaCoroutine == null)
+        {
+            esperaCoroutine = StartCoroutine(WaitIdle());
+        }
 
     }
 
@@ -313,7 +211,7 @@ public class PlayerController : MonoBehaviour
     //tipo_de_acceso tipo_variable_retorno nombre_funcion (parametros_entrada)
     private void HandleMovement()
     {
-        if (isBlocking == true || isMeleeAttacking == true || isRangedAttacking == true || codePanel.activeInHierarchy || clockPanel.activeInHierarchy || lockPanel.activeInHierarchy)
+        if (codePanel.activeInHierarchy || clockPanel.activeInHierarchy || lockPanel.activeInHierarchy)
         {
             return;
         }
@@ -365,14 +263,13 @@ public class PlayerController : MonoBehaviour
             actualSpeed = 0;
         }
 
-        if (isDashing == false)
-        {
+
             //LE DIGO AL CHARACTER CONTROLLER QUE SE MUEVA EN LA DIRECCION Y VELOCIDAD MARCADAS
             //DELTATIME CALCULA EL TIEMPO ENTRE EL FRAME ACTUAL Y EL ANTERIOR, SE USA PARA QUE SE MUEVA A LA MISMA VELOCIDAD EN TODOS LOS DISPOSITIVOS
             //DELTATIME = CUANTOS SEGUNDOS HAY EN UN FRAME (1/60 SI VA A 60FPS, 1/120 SI VA A 120 ETC)
             //normalized ME DEVUELVE EL VECTOR UNITARIO DE UN VECTOR, OSEA, DE MAGNITUD 1 (porque si no al ir en diagonal se suman ambos vectores, haciendo que vaya mas rapido
             characterController.Move(moveVelocity.normalized * actualSpeed * Time.deltaTime);
-        }
+
 
         //if (transform.parent == null)
         //{
@@ -391,38 +288,9 @@ public class PlayerController : MonoBehaviour
         if (isGrounded == true && gravityVelocity.y < 0)
         {
             gravityVelocity.y = -0.5f;
-            jumpsCount = 0;
         }
         if (transform.parent == null)
             anim.SetBool("_grounded", isGrounded);
-    }
-
-    //CONTROL DE SALTO
-    private void HandleJump()
-    {
-        if (jumpAction.WasPressedThisFrame() && jumpsCount < maxJumps && isDashing == false && isInvincible == false && isBlocking == false && isRangedAttacking == false && isMeleeAttacking == false && !DialogueManager.instance.isActive && !codePanel.activeInHierarchy && !clockPanel.activeInHierarchy && !lockPanel.activeInHierarchy)
-        {
-            //CALCULO EL TIEMPO QUE TARDARÍA EN LLEGAR A LA ALTURA MÁXIMA (APEX)
-            //NO HACEMOS EL CÁLCULO FÍSICO REAL, HACEMOS UNA APROXIMACIÓN A LA FÓRMULA
-            timeToApex = jumpDistance / (2 * runSpeed);
-            //FÓRMULA SIMPLIFICADA PARA EL CÁLCULO DE DISTANCIAS
-            //Mathf -> DA ACCESO A LA LIBRERÍA DE FUNCIONES MATEMÁTICAS
-            //Pow -> PARA CALCULAR POTENCIAS (AQUÍ ABAJO SERIA timeToApex^2)
-            requiredGravity = -(2 * jumpHeight) / Mathf.Pow(timeToApex, 2);
-            //CALCULO LA VELOCIDAD INICIAL QUE NECESITARIA PARA EL SALTO
-            //Sqrt -> PARA CALCULAR LA RAÍZ CUADRADA
-            initialVelocity = Mathf.Sqrt(jumpHeight * -2.0f * requiredGravity);
-            //+ SUMA NÚMEROS O CONCATENA TEXTOS (PONE UNO DESTRAS DEL OTRO)
-            Debug.Log("VELOCIDAD SALTO: " + initialVelocity);
-            Debug.Log("GRAVEDAD CALCULADA: " + requiredGravity);
-
-            gravity = requiredGravity;
-            gravityVelocity.y = initialVelocity;
-            jumpsCount = jumpsCount + 1;
-            anim.SetTrigger("_jump");
-
-        }
-
     }
 
     //CONTROL DE CAMARA
@@ -431,54 +299,11 @@ public class PlayerController : MonoBehaviour
             //CALCULO LA DIRECCION FORWARD Y RIGHT DE LA CAMARA
             camRight = mainCamera.transform.right;
             camForward = Vector3.ProjectOnPlane(mainCamera.transform.forward, Vector3.up);
-            if (cameraSwitchAction.WasPressedThisFrame())
-            {
-                orbitalCamActive = !orbitalCamActive;
-                if (orbitalCamActive == true)
-                {
-                    orbitalCam.Priority = 20;
-                    isometricCam.Priority = 0;
-                }
-                else
-                {
-                    orbitalCam.Priority = 0;
-                    isometricCam.Priority = 20;
-                }
-
-            }
-    }
-
-    //CONTROL DE DASH
-    private void HandleDash()
-    {
-        if (dashAction.WasPressedThisFrame() && isDashing == false && isInvincible == false && isBlocking == false && isRangedAttacking == false && isMeleeAttacking == false && !DialogueManager.instance.isActive && !codePanel.activeInHierarchy && !clockPanel.activeInHierarchy && !lockPanel.activeInHierarchy)
-        {
-            isDashing = true;
-            dashTime = 0;
-            dashDirection = transform.forward;
-        }
-
-        if (dashTime <= 1.0f)
-        {
-            dashTime = (dashTime + Time.deltaTime) / dashDuration;
-            dashCurveMultiplier = dashCurve.Evaluate(Mathf.Clamp01(dashTime));
-            characterController.Move(dashDirection * dashSpeed * dashCurveMultiplier * Time.deltaTime);
-
-            if (isGrounded == false)
-            {
-                gravityVelocity.y = gravityVelocity.y / 2;
-            }
-        }
-        else
-        {
-            isDashing = false;
-        }
-        anim.SetBool("_dashing", isDashing);
     }
 
     private void HandleCrouch()
     {
-        if (crouchAction.IsPressed() && isInvincible == false && isBlocking == false && isRangedAttacking == false && isMeleeAttacking == false && !DialogueManager.instance.isActive && !codePanel.activeInHierarchy && !clockPanel.activeInHierarchy && !lockPanel.activeInHierarchy)
+        if (crouchAction.IsPressed() && !DialogueManager.instance.isActive && !codePanel.activeInHierarchy && !clockPanel.activeInHierarchy && !lockPanel.activeInHierarchy)
         {
             isCrouching = true;
         }
@@ -486,7 +311,7 @@ public class PlayerController : MonoBehaviour
         {
             isCrouching = false;
         }
-        if (gravityVelocity.y < -5.0f || gravityVelocity.y > 0.1f || isDashing)
+        if (gravityVelocity.y < -5.0f || gravityVelocity.y > 0.1f)
         {
             isCrouching = false;
         }
@@ -505,94 +330,6 @@ public class PlayerController : MonoBehaviour
         }
         characterController.height = Mathf.Lerp(characterController.height, targetHeight, Time.deltaTime * crouchTransitionSpeed);
         characterController.center = Vector3.Lerp(characterController.center, targetCenter, Time.deltaTime * crouchTransitionSpeed);
-    }
-
-    private void HandleBlock()
-    {
-        //SI INTENTO BLOQUEAR Y NO ESTOY BLOQUEANDO Y NO ESTOY EN COOLDOWN
-        if(blockAction.WasPressedThisFrame() && isBlocking == false && blockCooldownTimer <= 0 && isDashing == false && isGrounded == true && isInvincible == false && isCrouching == false && isRangedAttacking == false && isMeleeAttacking == false && !DialogueManager.instance.isActive && !codePanel.activeInHierarchy && !clockPanel.activeInHierarchy && !lockPanel.activeInHierarchy)
-        {
-            isBlocking = true;
-            blockTimer = blockDuration;
-            //ACTIVO EL GAMEOBJECT DE BLOQUEO
-            blockSocket.SetActive(true);
-            //CREAR ANIMACIÓN!!!!!!!!!!!!!!!
-            anim.SetBool("_block", true);
-        }
-
-        if (isBlocking == true)
-        {
-            blockTimer = blockTimer - Time.deltaTime;
-            if (blockTimer <= 0)
-            {
-                isBlocking = false;
-                blockCooldownTimer = blockCooldownDuration; //ACTIVO EL COOLDOWN
-                blockSocket.SetActive(false);
-                anim.SetBool("_block", false);
-            }
-        }
-
-        if (blockCooldownTimer > 0)
-        {
-            blockCooldownTimer = blockCooldownTimer - Time.deltaTime;
-        }
-    }
-
-    //BOOL: DEVUELVE TRUE SI BLOQUEO EL ATAQUE, FALSE SI NO CONSIGO BLOQUEARLO  //TRANSFORM ATTACKER: PARA FUNCIONAR LA FUNCIÓN NECESITA UN TRANSFORM, EN ESTE CASO DEL OBJETO ATTACKER
-    private bool IsAttackBlocked(Transform attacker)
-    {
-        //EL VECTOR3 AL SER CREADO DENTRO DE ESTA FUNCIÓN SOLO EXISTE DENTRO DE ESTA FUNCIÓN
-        //ATTACKER POS. POSICIÓN DEL ATACANTE   //TRANSFORM POS. POSICIÓN DEL JUGADOR
-        Vector3 directionToAttacker = (attacker.position - transform.position).normalized;
-        float dot = Vector3.Dot(transform.forward, directionToAttacker);
-
-        return dot > blockDotAngleThreshold;
-    }
-
-    public void DoDamage(GameObject other)
-    {
-        //COMPRUEBO SI EL OBJETO QUE HA HECHO OVERLAP TIENE LA ETIQUETA DE DAMAGE
-        if (other.CompareTag("Damage"))
-        {
-            if (isInvincible == true)
-            {
-                return; //SALE DE LA FUNCION
-            }
-
-            CancelActions();
-            //DEFINO UNA VARIABLE LOCAL DAMAGEDEALER Y LE ASIGNO EL VALOR DEL GETCOMPONENT
-            //EL OTHER. PARA BUSCAR EL COMPONENTE DENTRO DEL COLLIDER OTHER EN VEZ DE DENTRO DEL SCRIPT PLAYERCONTROLLER
-            //LO QUE TENGA QUE VER CON EL OBJETO QUE HACE DAÑO NO LO GESTIONA EL PLAYER, SINO EL PROPIO OBJETO
-            DamageDealer dmg = other.GetComponent<DamageDealer>();
-            //CREO UNA VARIABLE PARA GUARDAR EL DAÑO QUE DEBERIA RECIBIR
-            float damageValue = dmg.damageValue; //CON DMG. ENTRO DENTRO DEL COMPONENTE DAMAGEDEALER Y SACO EL DAMAGEVALUE
-            //COMPRUEBO SI ESTOY BLOQUEANDO Y ESTE HA SIDO EFECTIVO
-            if (isBlocking == true && IsAttackBlocked(other.transform) == true)
-            {
-                damageValue = damageValue * blockDamageReduction;
-                //OBLIGO AL JUGADOR A DEJAR DE BLOQUEAR
-                blockTimer = 0;
-            }
-
-            //LE RESTO A LA VIDA EL DAÑO QUE DEBERÍA RECIBIR
-            currentHealth = currentHealth - damageValue;
-            //currentHealth -= dmg.damageValue; MISMO CODIGO PERO SIN TENER QUE ESCRIBIR EL CURRENTHEALTH OTRA VEZ, SE USA -= += ETC
-            //GameManager.instance.UpdateHealthBar(currentHealth / maxHealth);
-            Debug.Log(currentHealth);
-
-            if (currentHealth <= 0)
-            {
-                EnableRagdoll();
-            }
-            else
-            {
-                anim.SetTrigger("_damage");
-                isInvincible = true;
-                invincibleTimer = invincibleTime;
-            }
-
-        }
-
     }
 
     private void HandlePush()
@@ -631,7 +368,7 @@ public class PlayerController : MonoBehaviour
 
     private void HandleInteract()
     {
-        if (interactAction.WasPressedThisFrame() == true && !isMeleeAttacking && !isRangedAttacking && !isBlocking && !isDashing && isGrounded == true && !isCrouching && !isBlocking && !DialogueManager.instance.isActive)
+        if (interactAction.WasPressedThisFrame() == true && isGrounded == true && !isCrouching && !DialogueManager.instance.isActive)
         {
             RaycastHit hit; //VARIABLE PARA GUARDAR EL RESULTADO DEL RAYCAST
             Vector3 rayOrigin = transform.position + Vector3.up * pushRayPivotOffset;
@@ -660,10 +397,6 @@ public class PlayerController : MonoBehaviour
 
     private void CancelActions()
     {
-        isDashing = false;
-        dashTime = 0;
-        anim.SetBool("_dashing", false);
-
         isCrouching = false;
         anim.SetBool("_crouch", false);
 
@@ -672,24 +405,6 @@ public class PlayerController : MonoBehaviour
             gravityVelocity.y = 0;
         }
 
-    }
-
-    private void HandleMeleeInput()
-    {
-        if(meleeAction.WasPressedThisFrame() && !isMeleeAttacking && !isRangedAttacking && !isBlocking && !isDashing && isGrounded && !DialogueManager.instance.isActive && !codePanel.activeInHierarchy && !clockPanel.activeInHierarchy && !lockPanel.activeInHierarchy)
-        {
-            isMeleeAttacking = true;
-            anim.SetTrigger("_melee");
-        }
-    }
-
-    private void HandleRangedInput()
-    {
-        if(rangedAction.WasPressedThisFrame() && !isMeleeAttacking && !isRangedAttacking && !isBlocking && !isDashing && isGrounded && !DialogueManager.instance.isActive && !codePanel.activeInHierarchy && !clockPanel.activeInHierarchy && !lockPanel.activeInHierarchy)
-        {
-            isRangedAttacking = true;
-            anim.SetTrigger("_ranged");
-        }
     }
 
     private void OnControllerColliderHit(ControllerColliderHit hit)
@@ -706,78 +421,18 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public void EventShowMeleeWeapon()
-    {
-        meleeWeapon.SetActive(true);    //LOS GAMEOBJECTS SE ACTIVAN/DESACTIVAN CON UN .SETACTIVE
-    }
-
-    public void EventEnableMeleeCollider()
-    {
-        meleeCollider.enabled = true;   //LOS COMPONENTES SE ACTIVAN/DESACTIVAN CON .ENABLED
-    }
-
-    public void EventDisableMeleeCollider()
-    {
-        meleeCollider.enabled = false;
-    }
-
-    public void EventHideMeleeWeapon()
-    {
-        meleeWeapon.SetActive(false);
-        isMeleeAttacking = false;
-    }
-
-    public void EventShowRangeWeapon()
-    {
-        rangedWeapon.SetActive(true);
-    }
-
-    public void EventFireRangeWeapon()
-    {
-        //CREO UN NUEVO PROYECTIL GENERANDO UNA INSTANCIA DE PREFAB, EN UN PUNTO CONCRETO Y CON UNA ROTACION CONCRETA
-        GameObject projectileGO = Instantiate(projectilePrefab, projectileSpawnPoint.transform.position, Quaternion.identity); //QUATERNION.IDENTITY CREA UN QUATERNION CON LA ROTACION ORIGINAL DEL PREFAB
-        Projectile projectile = projectileGO.GetComponent<Projectile>();
-        if(GameManager.instance.autoAimActive == true)
-        {
-            Collider[] enemies = Physics.OverlapSphere(transform.position, enemyDetectionRadius, enemyLayer);
-            if(enemies.Length > 0)
-            {
-                float distance = enemyDetectionRadius;  //COMPARO LA DISTANCIA DE CADA ENEMIGO CON LA LONGITUD DEL RADIO DE DETECCION
-                int enemyIndex = 0;
-                for(int i = 0; i < enemies.Length; i ++)    //POR CADA ELEMENTO DEL INDEX
-                {
-                    if(Vector3.Distance(transform.position, enemies[0].transform.position) < distance)   //COMPRUEBO QUE LA DISTANCIA DEL ENEMIGO SEA MENOR AL RANGO DE DETECCION
-                    {
-                        distance = Vector3.Distance(transform.position, enemies[0].transform.position);  //CONVIERTO LA DISTANCIA DEL ENEMIGO EN EL PUNTO DE COMPARACION PARA LA DISTANCIA DEL SIGUIENTE
-                        enemyIndex = i;
-                    }
-                }
-                projectile.attackDirection = (enemies[enemyIndex].transform.position - transform.position).normalized;
-            }
-            else
-            {
-                projectile.attackDirection = transform.forward;
-            }
-        }
-        else
-        {
-            projectile.attackDirection = transform.forward;
-        }
-        if(projectile != null)
-        {
-            projectile.AttackNow();
-        }
-    }
-
-    public void EventHideRangeWeapon()
-    {
-        rangedWeapon.SetActive(false);
-        isRangedAttacking = false;
-    }
-
     public void EventStep()
     {
         Play3DSound(stepClip);
+    }
+
+    public void ShowGlass()
+    {
+        glass.SetActive(true);
+    }
+    public void HideGlass()
+    {
+        glass.SetActive(false);
     }
 
     public void Play3DSound(AudioClip clip)
@@ -887,6 +542,34 @@ public class PlayerController : MonoBehaviour
         else if (isOnLockZone && interactAction.WasPressedThisFrame() && lockPanel.activeInHierarchy && !lockScript.puzzleSolved)
         {
             lockPanel.SetActive(false);
+        }
+    }
+
+    IEnumerator WaitIdle()
+    {
+        float tiempoQuieto = 0f;
+
+        while (true)
+        {
+            // Comprobar velocidad
+            if (moveVelocity.sqrMagnitude <= 0.01f)
+            {
+                tiempoQuieto += Time.deltaTime;
+
+                // Han pasado 5 segundos quieto
+                if (tiempoQuieto >= 10f)
+                {
+                    anim.SetTrigger("_idle");
+                    tiempoQuieto = 0f;
+                }
+            }
+            else
+            {
+                // Se movió -> resetear contador
+                tiempoQuieto = 0f;
+            }
+
+            yield return null;
         }
     }
 }

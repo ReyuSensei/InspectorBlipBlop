@@ -1,44 +1,82 @@
 using UnityEngine;
+using System.Collections;
 
 public class PlayerAnimationEventDispatcher : MonoBehaviour
 {
-    public void EventShowMeleeWeapon()
+    public SkinnedMeshRenderer playerMeshRenderer;
+    private void Start()
     {
-        transform.parent.SendMessage("EventShowMeleeWeapon");
-    }
 
-    public void EventEnableMeleeCollider()
-    {
-        transform.parent.SendMessage("EventEnableMeleeCollider");
-    }
+        blinkIndex = playerMeshRenderer.sharedMesh.GetBlendShapeIndex(blinkShapeName);
 
-    public void EventDisableMeleeCollider()
-    {
-        transform.parent.SendMessage("EventDisableMeleeCollider");
+        if (blinkIndex != -1)
+        {
+            StartCoroutine(BlinkLoop());
+        }
+        else
+        {
+            Debug.LogError("No se encontró el Blend Shape: " + blinkShapeName);
+        }
     }
-
-    public void EventHideMeleeWeapon()
-    {
-        transform.parent.SendMessage("EventHideMeleeWeapon");
-    }
-
-    public void EventShowRangeWeapon()
-    {
-        transform.parent.SendMessage("EventShowRangeWeapon");
-    }
-
-    public void EventFireRangeWeapon()
-    {
-        transform.parent.SendMessage("EventFireRangeWeapon");
-    }
-
-    public void EventHideRangeWeapon()
-    {
-        transform.parent.SendMessage("EventHideRangeWeapon");
-    }
-
     public void EventStep()
     {
         transform.parent.SendMessage("EventStep");
     }
+
+    public void EventShowGlass() 
+    {
+        transform.parent.SendMessage("ShowGlass");
+    }
+
+    public void EventHideGlass()
+    {
+        transform.parent.SendMessage("HideGlass");
+    }
+
+    public string blinkShapeName = "Ojos cerrados";
+
+    // Tiempo entre pestañeos
+    public float minBlinkDelay = 2f;
+    public float maxBlinkDelay = 5f;
+
+    // Velocidad del pestañeo
+    public float blinkDuration = 0.08f;
+
+    private int blinkIndex;
+
+
+
+    IEnumerator BlinkLoop()
+    {
+        while (true)
+        {
+            // Espera aleatoria antes del siguiente pestañeo
+            yield return new WaitForSeconds(Random.Range(minBlinkDelay, maxBlinkDelay));
+
+            // Cerrar ojos
+            yield return StartCoroutine(SetBlink(0f, 100f));
+
+            // Abrir ojos
+            yield return StartCoroutine(SetBlink(100f, 0f));
+        }
+    }
+
+    IEnumerator SetBlink(float from, float to)
+    {
+        float elapsed = 0f;
+
+        while (elapsed < blinkDuration)
+        {
+            elapsed += Time.deltaTime;
+
+            float value = Mathf.Lerp(from, to, elapsed / blinkDuration);
+
+            playerMeshRenderer.SetBlendShapeWeight(blinkIndex, value);
+
+            yield return null;
+        }
+
+        playerMeshRenderer.SetBlendShapeWeight(blinkIndex, to);
+    }
 }
+
