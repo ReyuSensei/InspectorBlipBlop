@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bd7636deaaf7aa245be74b7815d9a839, type: 3}
-  m_Name: Dialogue.003
+  m_Name: 003.A4
   m_EditorClassIdentifier: Assembly-CSharp::Node
   portrait: {fileID: 21300000, guid: f3a01a73fe3a1ce429f8b17dfe78583c, type: 3}
   animCtrl: {fileID: 0}
   speaker: John
-  message: "\u2018Aye mate, I don\u2019t really feel like talking right now."
+  message: "\u2018Aye, really, thanks mate."
   choices:
-  - choiceText: I just need to ask you a couple of questions.
-    nextNode: {fileID: 11400000, guid: ff4d044a2ad2a904785a21e29ab3efca, type: 2}
-    questToStart: {fileID: 0}
-  endsDialogue: 0
+  - choiceText: (End dialogue)
+    nextNode: {fileID: 0}
+    questToStart: {fileID: 11400000, guid: 617c6ca5081173e4ea1bccf7a4fdbdf6, type: 2}
+  endsDialogue: 1

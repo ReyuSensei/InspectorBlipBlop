@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bd7636deaaf7aa245be74b7815d9a839, type: 3}
-  m_Name: Dialogue.002.A1
+  m_Name: 003.A2
   m_EditorClassIdentifier: Assembly-CSharp::Node
-  portrait: {fileID: 21300000, guid: 27ff1d845ae3f5846a7d8f22f6a4a01f, type: 3}
+  portrait: {fileID: 21300000, guid: f3a01a73fe3a1ce429f8b17dfe78583c, type: 3}
   animCtrl: {fileID: 0}
-  speaker: Dr. Pufferstein
-  message: "I tried, but they won\u2019t come out of their rooms."
+  speaker: John
+  message: Truly? You'd fetch it for me? Cheers ever so much, mate! I'm much obliged.
   choices:
   - choiceText: (Continue)
-    nextNode: {fileID: 11400000, guid: 0033de1fc4cfd0e4dae78a2899f35d09, type: 2}
+    nextNode: {fileID: 11400000, guid: 2273209abbba6d0419faf6595ef30cce, type: 2}
     questToStart: {fileID: 0}
   endsDialogue: 0

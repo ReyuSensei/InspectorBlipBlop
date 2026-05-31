@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bd7636deaaf7aa245be74b7815d9a839, type: 3}
-  m_Name: Dialogue.003.B1
+  m_Name: 004.A9
   m_EditorClassIdentifier: Assembly-CSharp::Node
   portrait: {fileID: 21300000, guid: f3a01a73fe3a1ce429f8b17dfe78583c, type: 3}
   animCtrl: {fileID: 0}
   speaker: John
-  message: "Hey, really, I don\u2019t feel well. I really do need my Spacesuit figurine."
+  message: Thanks, mate. I also want to know what happened to him.
   choices:
-  - choiceText: "Whatever, I\u2019ll get it for you. Where is it?"
-    nextNode: {fileID: 11400000, guid: ee015c4d9047a1347898944e6943de8b, type: 2}
-    questToStart: {fileID: 0}
-  endsDialogue: 0
+  - choiceText: (End dialogue)
+    nextNode: {fileID: 0}
+    questToStart: {fileID: 11400000, guid: be1a5010272821341a2657d5915a54cf, type: 2}
+  endsDialogue: 1

@@ -10,14 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bd7636deaaf7aa245be74b7815d9a839, type: 3}
-  m_Name: Dialogue.003.A4
+  m_Name: 004.A7
   m_EditorClassIdentifier: Assembly-CSharp::Node
   portrait: {fileID: 21300000, guid: f3a01a73fe3a1ce429f8b17dfe78583c, type: 3}
   animCtrl: {fileID: 0}
   speaker: John
-  message: "\u2018Aye, really, thanks mate."
+  message: "I think she even tried to coax into having one of her cocktails. Don\u2019t
+    get me wrong, they\u2019re lovely, but Felix is a robot. He simply can\u2019t
+    drink."
   choices:
-  - choiceText: (End dialogue)
+  - choiceText: Do you think she might have had something to do?
     nextNode: {fileID: 0}
-    questToStart: {fileID: 11400000, guid: 617c6ca5081173e4ea1bccf7a4fdbdf6, type: 2}
-  endsDialogue: 1
+    questToStart: {fileID: 0}
+  endsDialogue: 0

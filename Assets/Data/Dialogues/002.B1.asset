@@ -10,15 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bd7636deaaf7aa245be74b7815d9a839, type: 3}
-  m_Name: Dialogue.004
+  m_Name: 002.B1
   m_EditorClassIdentifier: Assembly-CSharp::Node
-  portrait: {fileID: 21300000, guid: f3a01a73fe3a1ce429f8b17dfe78583c, type: 3}
+  portrait: {fileID: 21300000, guid: 27ff1d845ae3f5846a7d8f22f6a4a01f, type: 3}
   animCtrl: {fileID: 0}
-  speaker: John
-  message: OH. MY. LORD. Thank you so much!!!!! I can't believe you found it. Thank
-    you!!!!!!!
+  speaker: Dr. Pufferstein
+  message: "Let me think about it\u2026"
   choices:
-  - choiceText: (End dialogue)
-    nextNode: {fileID: 0}
+  - choiceText: (Continue)
+    nextNode: {fileID: 11400000, guid: 225c5584554372b43b9004f9313cce9c, type: 2}
     questToStart: {fileID: 0}
-  endsDialogue: 1
+  endsDialogue: 0

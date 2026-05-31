@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bd7636deaaf7aa245be74b7815d9a839, type: 3}
-  m_Name: Dialogue.003.A2
+  m_Name: 004.A3
   m_EditorClassIdentifier: Assembly-CSharp::Node
   portrait: {fileID: 21300000, guid: f3a01a73fe3a1ce429f8b17dfe78583c, type: 3}
   animCtrl: {fileID: 0}
   speaker: John
-  message: "Really? You\u2019d find it for me? Thanks so much, mate! I appreciate
-    it."
+  message: "I can\u2019t remember exactly what happened, or how Felix ended up like
+    that. He\u2019s a big loss, y\u2019know? I can\u2019t believe it. I\u2019m gutted."
   choices:
-  - choiceText: (Continue)
-    nextNode: {fileID: 11400000, guid: 2273209abbba6d0419faf6595ef30cce, type: 2}
+  - choiceText: Were Felix and you close?
+    nextNode: {fileID: 11400000, guid: 30607135bdc3dbe408b7604b2b700d5b, type: 2}
     questToStart: {fileID: 0}
   endsDialogue: 0

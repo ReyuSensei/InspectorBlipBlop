@@ -10,14 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d764beb96bb96934ba518a9a3383263e, type: 3}
-  m_Name: Quest.003
+  m_Name: 002.InterrogateJohn.02
   m_EditorClassIdentifier: Assembly-CSharp::Quest
   questName: Interrogate John
   questIcon: {fileID: 21300000, guid: 0df23f15269c73d409bed399e846875b, type: 3}
   objectives:
+  - type: 3
+    targetID: pushCouch
+    description: Find John's Space Figurine. He said it should be around the couch,
+      or even under it.
   - type: 0
     targetID: collectJohnItem
-    description: Find John's Spacesuit figurine.
+    description: Retrieve the Space Figurine.
   - type: 2
     targetID: giveJohnItem
-    description: Give the Spacesuit figurine to John.
+    description: Give John his figurine and continue to interrogate him.
