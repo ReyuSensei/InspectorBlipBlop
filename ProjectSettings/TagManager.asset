@@ -11,6 +11,7 @@ TagManager:
   - BlockedZone
   - ClockZone
   - LockboxZone
+  - NPC
   layers:
   - Default
   - TransparentFX
