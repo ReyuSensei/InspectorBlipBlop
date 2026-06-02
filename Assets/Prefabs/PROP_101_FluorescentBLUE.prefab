@@ -43,9 +43,9 @@ Light:
   m_Enabled: 1
   serializedVersion: 11
   m_Type: 0
-  m_Color: {r: 0.9584937, g: 0.8, b: 1, a: 1}
-  m_Intensity: 2.5
-  m_Range: 7
+  m_Color: {r: 0, g: 0.106534764, b: 0.8584906, a: 1}
+  m_Intensity: 3
+  m_Range: 6
   m_SpotAngle: 138.47168
   m_InnerSpotAngle: 123.15309
   m_CookieSize: 10
@@ -83,7 +83,7 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 1
+  m_Lightmapping: 4
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
@@ -170,8 +170,8 @@ Light:
   m_Enabled: 1
   serializedVersion: 11
   m_Type: 2
-  m_Color: {r: 0.9584937, g: 0.8, b: 1, a: 1}
-  m_Intensity: 0.5
+  m_Color: {r: 0.33562022, g: 0, b: 0.9056604, a: 1}
+  m_Intensity: 0.25
   m_Range: 20
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -210,7 +210,7 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 1
+  m_Lightmapping: 4
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
@@ -305,10 +305,10 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 2b68c3542e74fd249bbdaf876a27a044, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: 75b6e36e272500d43b1e095af48a37c6, type: 2}
+      objectReference: {fileID: 2100000, guid: eb01410286152a6418ac9ae0268d8426, type: 2}
     - target: {fileID: 919132149155446097, guid: 2b68c3542e74fd249bbdaf876a27a044, type: 3}
       propertyPath: m_Name
-      value: PROP_101_Fluorescent
+      value: PROP_101_FluorescentBLUE
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
