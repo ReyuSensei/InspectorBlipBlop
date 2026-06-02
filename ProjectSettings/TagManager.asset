@@ -12,6 +12,7 @@ TagManager:
   - ClockZone
   - LockboxZone
   - NPC
+  - PipeZone
   layers:
   - Default
   - TransparentFX

@@ -19,6 +19,6 @@ MonoBehaviour:
     need the safe code, though."
   choices:
   - choiceText: (Continue)
-    nextNode: {fileID: 0}
+    nextNode: {fileID: 11400000, guid: 77c755f207d64604e8ab5a66c9e8d779, type: 2}
     questToStart: {fileID: 0}
   endsDialogue: 0

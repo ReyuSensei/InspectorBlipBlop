@@ -5,7 +5,6 @@ using UnityEngine.InputSystem;
 
 public class ClockController : MonoBehaviour
 {
-    [SerializeField] private GameObject bttE;
     [SerializeField] private GameObject minutes;
     [SerializeField] private GameObject hour;
     [SerializeField] private GameObject panel;
@@ -18,6 +17,7 @@ public class ClockController : MonoBehaviour
     [SerializeField] private float actualHourZ;
     [SerializeField] private float actualMinuteZ;
     [SerializeField] private Animator anim;
+    [SerializeField] private InteractableObject interactableObject;
     public bool puzzleSolved = false;
     private PlayerInput playerInput;
     private InputAction moveAction;
@@ -37,15 +37,6 @@ public class ClockController : MonoBehaviour
         moveInput = moveAction.ReadValue<Vector2>();
     }
 
-    public void bttEON()
-    {
-        if (!puzzleSolved) bttE.SetActive(true);
-    }
-
-    public void bttEOFF()
-    {
-        if (!puzzleSolved) bttE.SetActive(false);
-    }
 
     void HandleMinutes()
     {
@@ -85,8 +76,9 @@ public class ClockController : MonoBehaviour
     IEnumerator openClockWait()
     {
         yield return new WaitForSeconds(1.5f);
-        bttE.SetActive(false);
         anim.SetTrigger("_open");
         panel.SetActive(false);
+        interactableObject.isActive = false;
+        interactableObject.OFF();
     }
 }

@@ -19,6 +19,6 @@ MonoBehaviour:
     have a suspicion\u2026 It would be her."
   choices:
   - choiceText: "Thank you for your time. I\u2019ll probably come to you later again."
-    nextNode: {fileID: 0}
+    nextNode: {fileID: 11400000, guid: cbab739359e8c2c45b1c5ba3fc595b5f, type: 2}
     questToStart: {fileID: 0}
   endsDialogue: 0

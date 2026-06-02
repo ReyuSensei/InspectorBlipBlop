@@ -19,6 +19,6 @@ MonoBehaviour:
     I was drunk as hell. I don\u2019t even know what I was doing."
   choices:
   - choiceText: (Continue)
-    nextNode: {fileID: 0}
+    nextNode: {fileID: 11400000, guid: 20ab85edce29b6041a2400030253fea8, type: 2}
     questToStart: {fileID: 0}
   endsDialogue: 0

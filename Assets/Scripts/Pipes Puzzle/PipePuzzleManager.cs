@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using System.Collections;
 
 public class PipePuzzleManager : MonoBehaviour
 {
@@ -12,6 +13,10 @@ public class PipePuzzleManager : MonoBehaviour
 
     private PipePiece startPipe;
     private PipePiece endPipe;
+    public GameObject pipePanel;
+    public InteractableObject interactableObject;
+    public bool puzzleCompleted = false;
+    public Animator anim;
 
     private void Awake()
     {
@@ -37,7 +42,8 @@ public class PipePuzzleManager : MonoBehaviour
 
         if (solved)
         {
-            Debug.Log("PUZZLE COMPLETADO");
+            puzzleCompleted = true;
+            StartCoroutine(CompletePuzzle());
         }
     }
 
@@ -97,5 +103,14 @@ public class PipePuzzleManager : MonoBehaviour
             PipeDirection.Right => PipeDirection.Left,
             _ => direction
         };
+    }
+
+    IEnumerator CompletePuzzle()
+    {   
+        yield return new WaitForSeconds(1f);
+        pipePanel.SetActive(false);
+        anim.SetTrigger("_drain");
+        interactableObject.isActive = false;
+        interactableObject.OFF();
     }
 }

@@ -18,6 +18,6 @@ MonoBehaviour:
   message: "Hey, the door malfunctioned. It won\u2019t open."
   choices:
   - choiceText: (Continue)
-    nextNode: {fileID: 0}
+    nextNode: {fileID: 11400000, guid: 8bb67fa332b13bb45b93efa0c7838215, type: 2}
     questToStart: {fileID: 0}
   endsDialogue: 0

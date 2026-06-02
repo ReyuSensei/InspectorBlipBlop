@@ -9,12 +9,13 @@ public class LockBox : MonoBehaviour
     [SerializeField] private string code;
     [SerializeField] private Animator anim;
     [SerializeField] private Animator bttAnim;
-    [SerializeField] private GameObject bttE;
     [SerializeField] private GameObject lockPanel;
     [SerializeField] private Button BttR;
     [SerializeField] private Button BttB;
     [SerializeField] private Button BttY;
     [SerializeField] private Button BttG;
+    [SerializeField] private GameObject objectToShow;
+    [SerializeField] private InteractableObject interactableObject;
     public bool puzzleSolved = false;
 
     void CheckCode()
@@ -61,24 +62,14 @@ public class LockBox : MonoBehaviour
     {
         AddColor('Y');
     }
-
-    public void bttEOFF()
-    {
-        if(!puzzleSolved) bttE.SetActive(false);
-    }
-
-    public void bttEON()
-    {
-        if(!puzzleSolved) bttE.SetActive(true);
-    }
-
     IEnumerator codeCorrect()
     {
         bttAnim.SetTrigger("_on");
         yield return new WaitForSeconds(2f);
-        bttE.SetActive(false);
         lockPanel.SetActive(false);
         anim.SetTrigger("_open");
-        
+        objectToShow.SetActive(true);
+        interactableObject.isActive = false;
+        interactableObject.OFF();
     }
 }

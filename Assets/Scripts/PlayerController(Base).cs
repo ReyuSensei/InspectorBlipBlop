@@ -812,14 +812,12 @@ public class PlayerControllerBase : MonoBehaviour
         if (col.CompareTag("ClockZone"))
         {
             ClockController controller = clockPanel.GetComponent<ClockController>();
-            controller.bttEON();
             isOnClockZone = true;
         }
 
         if (col.CompareTag("LockboxZone"))
         {
             LockBox lController = lockPanel.GetComponent<LockBox>();
-            lController.bttEON();
             isOnLockZone = true;
         }
     }
@@ -834,14 +832,12 @@ public class PlayerControllerBase : MonoBehaviour
         if (col.CompareTag("ClockZone"))
         {
             ClockController controller = clockPanel.GetComponent<ClockController>();
-            controller.bttEOFF();
             isOnClockZone = false;
         }
 
         if (col.CompareTag("LockboxZone"))
         {
             LockBox lController = lockPanel.GetComponent<LockBox>();
-            lController.bttEOFF();
             isOnLockZone = false;
         }
     }

@@ -19,5 +19,5 @@ MonoBehaviour:
   choices:
   - choiceText: (End dialogue)
     nextNode: {fileID: 0}
-    questToStart: {fileID: 0}
+    questToStart: {fileID: 11400000, guid: 186c47cd90bf4044bb4451ddd8e96240, type: 2}
   endsDialogue: 1

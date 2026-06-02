@@ -19,6 +19,6 @@ MonoBehaviour:
     are to die for, no pun intended.
   choices:
   - choiceText: (Continue)
-    nextNode: {fileID: 0}
+    nextNode: {fileID: 11400000, guid: 596f34b17f12e454aa9883d4604262cd, type: 2}
     questToStart: {fileID: 0}
   endsDialogue: 0
