@@ -19,6 +19,7 @@ public class Node : ScriptableObject
     public string message;
     public List<Choice> choices;
     public bool endsDialogue;
+    public AudioClip clip;
 }
 
 [System.Serializable]

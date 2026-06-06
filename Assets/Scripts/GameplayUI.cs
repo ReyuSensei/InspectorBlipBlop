@@ -1,5 +1,8 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
+using System.Collections.Generic;
+using System.Collections;
 
 public class GameplayUI : MonoBehaviour
 {
@@ -7,8 +10,13 @@ public class GameplayUI : MonoBehaviour
     private Image healthBar;
     [SerializeField]
     private GameObject panelPause;
-    
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
+    private void Awake()
+    {
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
+    }
     void Start()
     {
         GameManager.instance.gameplayUI = this; //  LE DIGO AL GAMEMANAGER QUE EL GESTOR DE GAMEPLAYUI SOY YO, CREANDO UNA REFERENCIA INDIRECTA
@@ -36,6 +44,7 @@ public class GameplayUI : MonoBehaviour
     {
         GameManager.instance.StartGameTime();
         panelPause.SetActive(false);
+
     }
 
     public void TogglePause()
@@ -47,5 +56,12 @@ public class GameplayUI : MonoBehaviour
         {
             HidePause();
         }
+    }
+
+    IEnumerator ShowMouse()
+    {
+        yield return new WaitForSeconds(0.1f);
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
     }
 }

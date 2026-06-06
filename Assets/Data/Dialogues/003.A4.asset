@@ -20,4 +20,5 @@ MonoBehaviour:
   - choiceText: (End dialogue)
     nextNode: {fileID: 0}
     questToStart: {fileID: 11400000, guid: 617c6ca5081173e4ea1bccf7a4fdbdf6, type: 2}
-  endsDialogue: 1
+  endsDialogue: 0
+  clip: {fileID: 8300000, guid: 59de6f0b9c2a58a46ae2afb70604dcff, type: 3}

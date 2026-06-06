@@ -13,6 +13,7 @@ public class DialogueUI : MonoBehaviour
     public Animator anim;
     public GameObject choiceButtonPrefab;
     public Transform choiceParent;
+    public AudioSource choiceAudioSource;
 
     public float typeSpeed = 0.03f;
     private Coroutine typing;
@@ -27,6 +28,7 @@ public class DialogueUI : MonoBehaviour
     public void Show(Node node)
     {
         root.SetActive(true);
+        anim.SetBool("_up", true);
         //RELLENO LOS CAMPOS CON LA INFORMACION PROVINIENTE DEL NODO
         speakerName.text = node.speaker;
         //dialogueText.text = node.message;
@@ -34,6 +36,10 @@ public class DialogueUI : MonoBehaviour
         if (node.animCtrl != null)
         {
             anim.runtimeAnimatorController = node.animCtrl;
+        }
+        if(node.clip != null)
+        {
+            choiceAudioSource.PlayOneShot(node.clip);
         }
         //ARRANCO LA CORUTINA QUE HARA EL EFECTO DE MAQUINA DE ESCRIBIR
         if (typing != null)
@@ -77,6 +83,13 @@ public class DialogueUI : MonoBehaviour
         
     public void Hide()
     {
+        StartCoroutine(HideAfterAnimation());
+        anim.SetBool("_up", false);
+    }
+
+    IEnumerator HideAfterAnimation()
+    {
+        yield return new WaitForSeconds(0.5f);
         root.SetActive(false);
     }
 }

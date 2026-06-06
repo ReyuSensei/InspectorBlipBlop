@@ -10,6 +10,7 @@ public class CameraStay : MonoBehaviour
     [SerializeField] private GameObject pipePanel;
     [SerializeField] private GameObject colorPanel;
     [SerializeField] private GameObject gamePanel;
+    [SerializeField] private GameObject pausePanel;
     private CinemachineInputAxisController cameraControl;
 
     void Start()
@@ -24,13 +25,17 @@ public class CameraStay : MonoBehaviour
 
     void HandleCameraControl()
     {
-        if (dialogue.activeSelf || codePanel.activeSelf || clockPanel.activeSelf || pipePanel.activeSelf || colorPanel.activeSelf || gamePanel.activeSelf)
+        if (dialogue.activeSelf || codePanel.activeSelf || clockPanel.activeSelf || pipePanel.activeSelf || colorPanel.activeSelf || gamePanel.activeSelf || pausePanel.activeSelf)
         {
             cameraControl.enabled = false;
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
         }
         else
         {
             cameraControl.enabled = true;
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
         }
     }
 }

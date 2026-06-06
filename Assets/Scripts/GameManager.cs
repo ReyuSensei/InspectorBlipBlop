@@ -44,6 +44,7 @@ public class GameManager : MonoBehaviour
             //SI YA HAY UNA INSTANCIA, ME SUICIDO
             Destroy(gameObject); //DESTRUYO EL OBJECTO QUE TIENE EL SCRIPT
         }
+        StartGameTime();
     }
 
     /*public void UpdateHealthBar(float value)
