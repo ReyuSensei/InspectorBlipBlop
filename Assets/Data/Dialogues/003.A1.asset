@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd7636deaaf7aa245be74b7815d9a839, type: 3}
   m_Name: 003.A1
   m_EditorClassIdentifier: Assembly-CSharp::Node
-  portrait: {fileID: 21300000, guid: f3a01a73fe3a1ce429f8b17dfe78583c, type: 3}
+  portrait: {fileID: 21300000, guid: 42d891f1be2b54947857d06f5c7c52f5, type: 3}
   animCtrl: {fileID: 0}
   speaker: John
   message: "I\u2019m really not in the mood\u2026 I do wish I had my comfort Space

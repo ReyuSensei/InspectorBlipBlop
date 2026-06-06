@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd7636deaaf7aa245be74b7815d9a839, type: 3}
   m_Name: 003.B1
   m_EditorClassIdentifier: Assembly-CSharp::Node
-  portrait: {fileID: 21300000, guid: f3a01a73fe3a1ce429f8b17dfe78583c, type: 3}
+  portrait: {fileID: 21300000, guid: abf0847761af8a647bb0040d66a21602, type: 3}
   animCtrl: {fileID: 0}
   speaker: John
   message: "Hey, really, I don\u2019t feel well. I really do need my Space Figurine."

@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd7636deaaf7aa245be74b7815d9a839, type: 3}
+  m_Name: 040.A4
+  m_EditorClassIdentifier: Assembly-CSharp::Node
+  portrait: {fileID: 21300000, guid: e93fc3e47971b664197a0f5bf296170c, type: 3}
+  animCtrl: {fileID: 0}
+  speaker: Nova
+  message: "I\u2019m nobody without Felix so, why does it matter?"
+  choices:
+  - choiceText: (Continue)
+    nextNode: {fileID: 11400000, guid: 5b565fa9e8ef8b441b1f2a3af8c981e9, type: 2}
+    questToStart: {fileID: 0}
+  endsDialogue: 0

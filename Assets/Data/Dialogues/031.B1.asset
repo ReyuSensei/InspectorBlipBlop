@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd7636deaaf7aa245be74b7815d9a839, type: 3}
+  m_Name: 031.B1
+  m_EditorClassIdentifier: Assembly-CSharp::Node
+  portrait: {fileID: 21300000, guid: 97186253bafe07141af73948b51029cf, type: 3}
+  animCtrl: {fileID: 0}
+  speaker: John
+  message: Why do you need the manual?
+  choices:
+  - choiceText: "You\u2019re not the only one that\u2019s guilty here."
+    nextNode: {fileID: 11400000, guid: b9b1466662e0d5d4a8745bd713a3b224, type: 2}
+    questToStart: {fileID: 0}
+  endsDialogue: 0

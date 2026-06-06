@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd7636deaaf7aa245be74b7815d9a839, type: 3}
+  m_Name: Cocoon1
+  m_EditorClassIdentifier: Assembly-CSharp::Node
+  portrait: {fileID: 21300000, guid: 00bd0e3b083e78b41b83fb4f24518540, type: 3}
+  animCtrl: {fileID: 0}
+  speaker: Blip-Blop
+  message: This cocoon must belong to a gigantic moth. It doesn't seem to contain
+    anything important for the investigation,
+  choices:
+  - choiceText: (Continue)
+    nextNode: {fileID: 11400000, guid: 79bf32ef0f2e0b54cbb680d6d87356e0, type: 2}
+    questToStart: {fileID: 0}
+  endsDialogue: 0

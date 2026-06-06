@@ -13,6 +13,7 @@ TagManager:
   - LockboxZone
   - NPC
   - PipeZone
+  - GameZone
   layers:
   - Default
   - TransparentFX

@@ -123,7 +123,9 @@ public class PlayerController : MonoBehaviour
     private bool isOnLockZone;
     [SerializeField] private GameObject lockPanel;
     private bool isOnPipeZone;
-    private bool blockMovement; 
+    private bool blockMovement;
+    [SerializeField] private GameObject mandoPanel;
+    private bool isOnGameZone;
 
     [Header("SOUND")]
     [SerializeField]
@@ -194,6 +196,7 @@ public class PlayerController : MonoBehaviour
         HandleLock();
         HandlePipes();
         HandleMovementLock();
+        HandleMando();
 
         if (esperaCoroutine == null)
         {
@@ -345,7 +348,6 @@ public class PlayerController : MonoBehaviour
         {
             //hit CONTIENE LA INFORMACION DE IMPACTO, ENTRE OTRAS COSAS EL COLLIDER DEL OBJETO CONTRA EL QUE HA IMPACTADO
             //COMPRUEBO QUE EL OBJETO TENGA RIGIDBODY Y NO SEA KINEMATIC
-            Debug.DrawRay(rayOrigin, transform.forward * pushRayDistance, Color.red);
             Rigidbody pushRb = hit.collider.GetComponent<Rigidbody>();
             if(pushRb != null && pushRb.isKinematic == false)
                 {
@@ -379,6 +381,7 @@ public class PlayerController : MonoBehaviour
             if (Physics.Raycast(rayOrigin, transform.forward, out hit, interactDistance, interactLayer))
             {
                 hit.collider.GetComponent<IInteractable>().Interact();
+                anim.SetTrigger("_interact");
             }
         }
     }
@@ -427,6 +430,7 @@ public class PlayerController : MonoBehaviour
 
     public void EventStep()
     {
+        
         Play3DSound(stepClip);
     }
 
@@ -441,6 +445,7 @@ public class PlayerController : MonoBehaviour
 
     public void Play3DSound(AudioClip clip)
     {
+        audioSource.pitch = Random.Range(0.9f, 1.1f);
         audioSource.PlayOneShot(clip);
     }
 
@@ -484,6 +489,11 @@ public class PlayerController : MonoBehaviour
         {
             isOnPipeZone = true;
         }
+
+        if (col.CompareTag("GameZone"))
+        {
+            isOnGameZone = true;
+        }
     }
 
     public void OnTriggerExit(Collider col)
@@ -509,6 +519,11 @@ public class PlayerController : MonoBehaviour
         {
             isOnPipeZone = false;
         }
+
+        if (col.CompareTag("GameZone"))
+        {
+            isOnGameZone = false;
+        }
     }
 
 
@@ -519,10 +534,12 @@ public class PlayerController : MonoBehaviour
 
         if (isOnBlockedZone && interactAction.WasPressedThisFrame() && !codePanel.activeInHierarchy && !codeScript.deactive)
         {
-            codePanel.SetActive(true);            
+            codePanel.SetActive(true);
+            anim.SetTrigger("_interact");
         } else if(isOnBlockedZone && interactAction.WasPressedThisFrame() && codePanel.activeInHierarchy && !codeScript.deactive)
         {
             codePanel.SetActive(false);
+            anim.SetTrigger("_interact");
         } 
 
     }
@@ -534,10 +551,12 @@ public class PlayerController : MonoBehaviour
         if (isOnClockZone && interactAction.WasPressedThisFrame() && !clockPanel.activeInHierarchy && !clockScript.puzzleSolved)
         {
             clockPanel.SetActive(true);
+            anim.SetTrigger("_interact");
         }
         else if (isOnClockZone && interactAction.WasPressedThisFrame() && clockPanel.activeInHierarchy && !clockScript.puzzleSolved)
         {
             clockPanel.SetActive(false);
+            anim.SetTrigger("_interact");
         }
     }
 
@@ -547,10 +566,12 @@ public class PlayerController : MonoBehaviour
         if (isOnPipeZone && interactAction.WasPressedThisFrame() && !PipePuzzleManager.Instance.pipePanel.activeInHierarchy && !PipePuzzleManager.Instance.puzzleCompleted)
         {
             PipePuzzleManager.Instance.pipePanel.SetActive(true);
+            anim.SetTrigger("_interact");
         }
         else if (isOnPipeZone && interactAction.WasPressedThisFrame() && PipePuzzleManager.Instance.pipePanel.activeInHierarchy && !PipePuzzleManager.Instance.puzzleCompleted)
         {
             PipePuzzleManager.Instance.pipePanel.SetActive(false);
+            anim.SetTrigger("_interact");
         }
     }
 
@@ -561,10 +582,28 @@ public class PlayerController : MonoBehaviour
         if (isOnLockZone && interactAction.WasPressedThisFrame() && !lockPanel.activeInHierarchy && !lockScript.puzzleSolved)
         {
             lockPanel.SetActive(true);
+            anim.SetTrigger("_interact");
         }
         else if (isOnLockZone && interactAction.WasPressedThisFrame() && lockPanel.activeInHierarchy && !lockScript.puzzleSolved)
         {
             lockPanel.SetActive(false);
+            anim.SetTrigger("_interact");
+        }
+    }
+
+    public void HandleMando()
+    {
+        
+
+        if (isOnGameZone && interactAction.WasPressedThisFrame() && !Mando.Instance.mandoPanel.activeInHierarchy && !Mando.Instance.puzzleSolved)
+        {
+            mandoPanel.SetActive(true);
+            anim.SetTrigger("_interact");
+        }
+        else if (isOnGameZone && interactAction.WasPressedThisFrame() && !Mando.Instance.mandoPanel.activeInHierarchy && !Mando.Instance.puzzleSolved)
+        {
+            mandoPanel.SetActive(false);
+            anim.SetTrigger("_interact");
         }
     }
 
@@ -598,7 +637,7 @@ public class PlayerController : MonoBehaviour
 
     void HandleMovementLock()
     {
-        if(DialogueManager.instance.isActive || codePanel.activeInHierarchy || clockPanel.activeInHierarchy || lockPanel.activeInHierarchy || PipePuzzleManager.Instance.pipePanel.activeInHierarchy) 
+        if(DialogueManager.instance.isActive || codePanel.activeInHierarchy || clockPanel.activeInHierarchy || lockPanel.activeInHierarchy || PipePuzzleManager.Instance.pipePanel.activeInHierarchy || Mando.Instance.mandoPanel.activeInHierarchy) 
         { 
             anim.SetFloat("_speed", 0);
             blockMovement = true; 

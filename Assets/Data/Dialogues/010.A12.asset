@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd7636deaaf7aa245be74b7815d9a839, type: 3}
+  m_Name: 010.A12
+  m_EditorClassIdentifier: Assembly-CSharp::Node
+  portrait: {fileID: 21300000, guid: b05b989e3109a1042b16da13ac2b9ff2, type: 3}
+  animCtrl: {fileID: 0}
+  speaker: Nova
+  message: "But they don\u2019t speak like that at all, with that weird accent. I
+    think he\u2019s either faking it or he\u2019s high."
+  choices:
+  - choiceText: You said he was playing with his baseball bat.
+    nextNode: {fileID: 11400000, guid: c92f561e5808a684396e46519d0c413d, type: 2}
+    questToStart: {fileID: 0}
+  endsDialogue: 0

@@ -18,6 +18,7 @@ public class ClockController : MonoBehaviour
     [SerializeField] private float actualMinuteZ;
     [SerializeField] private Animator anim;
     [SerializeField] private InteractableObject interactableObject;
+    [SerializeField] private GameObject activeObject;
     public bool puzzleSolved = false;
     private PlayerInput playerInput;
     private InputAction moveAction;
@@ -80,5 +81,6 @@ public class ClockController : MonoBehaviour
         panel.SetActive(false);
         interactableObject.isActive = false;
         interactableObject.OFF();
+        activeObject.SetActive(true);
     }
 }

@@ -9,6 +9,7 @@ public class CameraStay : MonoBehaviour
     [SerializeField] private GameObject clockPanel;
     [SerializeField] private GameObject pipePanel;
     [SerializeField] private GameObject colorPanel;
+    [SerializeField] private GameObject gamePanel;
     private CinemachineInputAxisController cameraControl;
 
     void Start()
@@ -23,7 +24,7 @@ public class CameraStay : MonoBehaviour
 
     void HandleCameraControl()
     {
-        if (dialogue.activeSelf || codePanel.activeSelf || clockPanel.activeSelf || pipePanel.activeSelf || colorPanel.activeSelf)
+        if (dialogue.activeSelf || codePanel.activeSelf || clockPanel.activeSelf || pipePanel.activeSelf || colorPanel.activeSelf || gamePanel.activeSelf)
         {
             cameraControl.enabled = false;
         }

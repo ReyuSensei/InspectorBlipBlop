@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd7636deaaf7aa245be74b7815d9a839, type: 3}
+  m_Name: 010.A5
+  m_EditorClassIdentifier: Assembly-CSharp::Node
+  portrait: {fileID: 21300000, guid: b05b989e3109a1042b16da13ac2b9ff2, type: 3}
+  animCtrl: {fileID: 0}
+  speaker: Nova
+  message: "Dr. Pufferstein\u2026 I don\u2019t think he did anything weird, if anything
+    he\u2019s like a father to everyone. "
+  choices:
+  - choiceText: (Continue)
+    nextNode: {fileID: 11400000, guid: 6fd1d2f4bc231324aa51c0e4142e5906, type: 2}
+    questToStart: {fileID: 0}
+  endsDialogue: 0

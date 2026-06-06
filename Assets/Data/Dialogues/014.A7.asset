@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd7636deaaf7aa245be74b7815d9a839, type: 3}
+  m_Name: 014.A7
+  m_EditorClassIdentifier: Assembly-CSharp::Node
+  portrait: {fileID: 21300000, guid: 9bed38a7fa14a4e4bb58924d67dcdcc0, type: 3}
+  animCtrl: {fileID: 0}
+  speaker: Butter
+  message: Sure thing. Thanks.
+  choices:
+  - choiceText: "By the way, do you know where John\u2019s bat is?"
+    nextNode: {fileID: 11400000, guid: 18231e1cad6822c498a2b2a01cc73c7d, type: 2}
+    questToStart: {fileID: 0}
+  endsDialogue: 0

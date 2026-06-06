@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd7636deaaf7aa245be74b7815d9a839, type: 3}
   m_Name: 006
   m_EditorClassIdentifier: Assembly-CSharp::Node
-  portrait: {fileID: 21300000, guid: b540b08d134e6904ca0eecf09a70c259, type: 3}
+  portrait: {fileID: 21300000, guid: 9aa2f979a507d674c8d30e3abafccc81, type: 3}
   animCtrl: {fileID: 0}
   speaker: Nova
   message: "You\u2019ll need a keycard. It\u2019s in my safe, upstairs. You\u2019ll

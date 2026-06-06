@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd7636deaaf7aa245be74b7815d9a839, type: 3}
+  m_Name: 025
+  m_EditorClassIdentifier: Assembly-CSharp::Node
+  portrait: {fileID: 21300000, guid: 00bd0e3b083e78b41b83fb4f24518540, type: 3}
+  animCtrl: {fileID: 0}
+  speaker: Blip-Blop
+  message: "\u201C5501\u201D. So the time would be 10:55."
+  choices:
+  - choiceText: (Continue)
+    nextNode: {fileID: 0}
+    questToStart: {fileID: 11400000, guid: e36bf675258b2c44b97e8fc87cd95a0b, type: 2}
+  endsDialogue: 1

@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 
 public class CodeInput : MonoBehaviour
@@ -10,6 +12,7 @@ public class CodeInput : MonoBehaviour
     [SerializeField] private GameObject codePanel;
     [SerializeField] private string codigoSecreto;
     [SerializeField] private GameObject blockedDoor;
+    [SerializeField] private Animator anim;
     public bool deactive;
 
 
@@ -78,10 +81,10 @@ public class CodeInput : MonoBehaviour
 
     void HandleCode()
     {
-        if(codigo != null && codigo.text != null && codigo.text.Length == 4 && !deactive) 
-        { 
-            if(codigo.text == codigoSecreto)
-        
+        if (codigo != null && codigo.text != null && codigo.text.Length == 4 && !deactive)
+        {
+            if (codigo.text == codigoSecreto)
+
             {
                 BlockedDoor doorScript = blockedDoor.GetComponent<BlockedDoor>();
                 doorScript.isBlocked = false;
@@ -89,7 +92,8 @@ public class CodeInput : MonoBehaviour
                 StartCoroutine(HandleCorrect());
 
 
-            } else if(codigo.text != "XXXX")
+            }
+            else if (codigo.text != "XXXX")
             {
                 StartCoroutine(HandleError());
             }
@@ -117,9 +121,12 @@ public class CodeInput : MonoBehaviour
 
     private IEnumerator HandleCorrect()
     {
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(0.1f);
         codePanel.SetActive(false);
-        deactive = true;
+        yield return new WaitForSeconds(9f);
+        anim.SetTrigger("_close");
+        yield return new WaitForSeconds(3f);
+        SceneManager.LoadScene("Story");
     }
-
 }
+

@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd7636deaaf7aa245be74b7815d9a839, type: 3}
+  m_Name: 034
+  m_EditorClassIdentifier: Assembly-CSharp::Node
+  portrait: {fileID: 21300000, guid: 00bd0e3b083e78b41b83fb4f24518540, type: 3}
+  animCtrl: {fileID: 0}
+  speaker: Blip-Blop
+  message: "It looks like UV activated makeup. There\u2019s only one person fruity
+    enough to do makeup here."
+  choices:
+  - choiceText: (Continue)
+    nextNode: {fileID: 11400000, guid: fe2dd8eb569030c4897c4c6a651440a8, type: 2}
+    questToStart: {fileID: 0}
+  endsDialogue: 0

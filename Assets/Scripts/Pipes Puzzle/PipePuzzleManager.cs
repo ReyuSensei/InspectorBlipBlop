@@ -17,6 +17,7 @@ public class PipePuzzleManager : MonoBehaviour
     public InteractableObject interactableObject;
     public bool puzzleCompleted = false;
     public Animator anim;
+    public GameObject arm;
 
     private void Awake()
     {
@@ -112,5 +113,6 @@ public class PipePuzzleManager : MonoBehaviour
         anim.SetTrigger("_drain");
         interactableObject.isActive = false;
         interactableObject.OFF();
+        arm.SetActive(true);
     }
 }

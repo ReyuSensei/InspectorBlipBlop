@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd7636deaaf7aa245be74b7815d9a839, type: 3}
   m_Name: 004
   m_EditorClassIdentifier: Assembly-CSharp::Node
-  portrait: {fileID: 21300000, guid: f3a01a73fe3a1ce429f8b17dfe78583c, type: 3}
+  portrait: {fileID: 21300000, guid: 679d530411b951b448b88b2cebb1614c, type: 3}
   animCtrl: {fileID: 0}
   speaker: John
   message: "Oh. My. God. I can\u2019t believe you found it!! Cheers ever so much,
