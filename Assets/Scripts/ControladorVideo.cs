@@ -35,4 +35,9 @@ public class ControladorVideo : MonoBehaviour
             miVideoPlayer.loopPointReached -= AlTerminarVideo;
         }
     }
+
+    public void SkipCinematic()
+    {
+        SceneManager.LoadScene(nombreDeLaSiguienteEscena);
+    }
 }
