@@ -2,19 +2,37 @@ using UnityEngine;
 
 public class PlatformParent : MonoBehaviour
 {
-    private void OnTriggerEnter(Collider collision)
+    // En el script del ascensor
+    private Transform player;
+    private Vector3 lastPosition;
+
+    void Update()
     {
-        if (collision.gameObject.CompareTag("Player"))
+        Vector3 deltaMovement = transform.position - lastPosition;
+        lastPosition = transform.position;
+
+        if (player != null)
         {
-            collision.gameObject.transform.SetParent(transform);
+            CharacterController cc = player.GetComponent<CharacterController>();
+            if (cc != null)
+                cc.Move(deltaMovement);
+            else
+                player.position += deltaMovement;
         }
     }
 
-    private void OnTriggerExit(Collider collision)
+    void OnTriggerEnter(Collider other)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (other.CompareTag("Player"))
         {
-            collision.gameObject.transform.SetParent(null);
+            player = other.transform;
+            lastPosition = transform.position;
         }
+    }
+
+    void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Player"))
+            player = null;
     }
 }
