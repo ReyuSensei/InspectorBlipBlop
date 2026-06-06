@@ -1398,7 +1398,7 @@ MonoBehaviour:
   fadeDuration: 1.5
   waitBetween: 1
   typeSpeed: 0.05
-  mainMenuScene: MainMenu
+  mainMenuScene: Credits
   audioSource: {fileID: 1509126180}
   typeSound: {fileID: 8300000, guid: 8cb7ca8e7ce5bed4c8a6ebad48370b7f, type: 3}
   pitchMin: 0.9

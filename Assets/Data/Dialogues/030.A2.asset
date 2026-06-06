@@ -21,3 +21,4 @@ MonoBehaviour:
     nextNode: {fileID: 11400000, guid: da08298dec7ab474bb0c71b1cc773057, type: 2}
     questToStart: {fileID: 0}
   endsDialogue: 0
+  clip: {fileID: 8300000, guid: db07dce582a61874fb8ac7ae3468182b, type: 3}

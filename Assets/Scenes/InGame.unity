@@ -1312,30 +1312,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1985283302}
     m_Modifications:
-    - target: {fileID: -3887185075125053422, guid: 6453c39b268c70b4bbe4b94670b93120, type: 3}
-      propertyPath: m_DirtyAABB
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -3887185075125053422, guid: 6453c39b268c70b4bbe4b94670b93120, type: 3}
-      propertyPath: m_AABB.m_Center.y
-      value: -0.00036873168
-      objectReference: {fileID: 0}
-    - target: {fileID: -3887185075125053422, guid: 6453c39b268c70b4bbe4b94670b93120, type: 3}
-      propertyPath: m_AABB.m_Center.z
-      value: 0.009115884
-      objectReference: {fileID: 0}
-    - target: {fileID: -3887185075125053422, guid: 6453c39b268c70b4bbe4b94670b93120, type: 3}
-      propertyPath: m_AABB.m_Extent.x
-      value: 0.0041904477
-      objectReference: {fileID: 0}
-    - target: {fileID: -3887185075125053422, guid: 6453c39b268c70b4bbe4b94670b93120, type: 3}
-      propertyPath: m_AABB.m_Extent.y
-      value: 0.002325424
-      objectReference: {fileID: 0}
-    - target: {fileID: -3887185075125053422, guid: 6453c39b268c70b4bbe4b94670b93120, type: 3}
-      propertyPath: m_AABB.m_Extent.z
-      value: 0.009142749
-      objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9edf30911efe7ce4092d7313a66b8cee, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
@@ -1408,6 +1384,30 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 7bace31c96831be4899ab5627d6104e0, type: 2}
+    - target: {fileID: -3887185075125053422, guid: 6453c39b268c70b4bbe4b94670b93120, type: 3}
+      propertyPath: m_DirtyAABB
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -3887185075125053422, guid: 6453c39b268c70b4bbe4b94670b93120, type: 3}
+      propertyPath: m_AABB.m_Center.y
+      value: -0.00036873168
+      objectReference: {fileID: 0}
+    - target: {fileID: -3887185075125053422, guid: 6453c39b268c70b4bbe4b94670b93120, type: 3}
+      propertyPath: m_AABB.m_Center.z
+      value: 0.009115884
+      objectReference: {fileID: 0}
+    - target: {fileID: -3887185075125053422, guid: 6453c39b268c70b4bbe4b94670b93120, type: 3}
+      propertyPath: m_AABB.m_Extent.x
+      value: 0.0041904477
+      objectReference: {fileID: 0}
+    - target: {fileID: -3887185075125053422, guid: 6453c39b268c70b4bbe4b94670b93120, type: 3}
+      propertyPath: m_AABB.m_Extent.y
+      value: 0.002325424
+      objectReference: {fileID: 0}
+    - target: {fileID: -3887185075125053422, guid: 6453c39b268c70b4bbe4b94670b93120, type: 3}
+      propertyPath: m_AABB.m_Extent.z
+      value: 0.009142749
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -11576,7 +11576,7 @@ MonoBehaviour:
   questToGive: {fileID: 11400000, guid: e36bf675258b2c44b97e8fc87cd95a0b, type: 2}
   questOfferDialogue: {fileID: 11400000, guid: a5aa20efdbab5804295612b275375191, type: 2}
   endQuestDialogue: {fileID: 0}
-  busyQuestDialogue: {fileID: 0}
+  busyQuestDialogue: {fileID: 11400000, guid: 07d77b4c2e98dc44d9ded6ec434fd00d, type: 2}
   activeQuestDialogue: {fileID: 11400000, guid: de1e0686334dec14ab90e565333e84ec, type: 2}
   relatedQuest: {fileID: 0}
   beforeQuestDialogue: {fileID: 0}
@@ -18570,7 +18570,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3648156696225298345, guid: c7614202510344d4a8a32b60e6d9778d, type: 3}
       propertyPath: m_Size.x
-      value: 0.91
+      value: 0.83
+      objectReference: {fileID: 0}
+    - target: {fileID: 3648156696225298345, guid: c7614202510344d4a8a32b60e6d9778d, type: 3}
+      propertyPath: m_Size.y
+      value: 2.74
       objectReference: {fileID: 0}
     - target: {fileID: 3648156696225298345, guid: c7614202510344d4a8a32b60e6d9778d, type: 3}
       propertyPath: m_IsTrigger
@@ -21101,30 +21105,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1696856800}
     m_Modifications:
-    - target: {fileID: -3887185075125053422, guid: 6453c39b268c70b4bbe4b94670b93120, type: 3}
-      propertyPath: m_DirtyAABB
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -3887185075125053422, guid: 6453c39b268c70b4bbe4b94670b93120, type: 3}
-      propertyPath: m_AABB.m_Center.y
-      value: -0.00036873168
-      objectReference: {fileID: 0}
-    - target: {fileID: -3887185075125053422, guid: 6453c39b268c70b4bbe4b94670b93120, type: 3}
-      propertyPath: m_AABB.m_Center.z
-      value: 0.009115884
-      objectReference: {fileID: 0}
-    - target: {fileID: -3887185075125053422, guid: 6453c39b268c70b4bbe4b94670b93120, type: 3}
-      propertyPath: m_AABB.m_Extent.x
-      value: 0.0041904477
-      objectReference: {fileID: 0}
-    - target: {fileID: -3887185075125053422, guid: 6453c39b268c70b4bbe4b94670b93120, type: 3}
-      propertyPath: m_AABB.m_Extent.y
-      value: 0.002325424
-      objectReference: {fileID: 0}
-    - target: {fileID: -3887185075125053422, guid: 6453c39b268c70b4bbe4b94670b93120, type: 3}
-      propertyPath: m_AABB.m_Extent.z
-      value: 0.009142749
-      objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9edf30911efe7ce4092d7313a66b8cee, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
@@ -21197,6 +21177,30 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 7bace31c96831be4899ab5627d6104e0, type: 2}
+    - target: {fileID: -3887185075125053422, guid: 6453c39b268c70b4bbe4b94670b93120, type: 3}
+      propertyPath: m_DirtyAABB
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -3887185075125053422, guid: 6453c39b268c70b4bbe4b94670b93120, type: 3}
+      propertyPath: m_AABB.m_Center.y
+      value: -0.00036873168
+      objectReference: {fileID: 0}
+    - target: {fileID: -3887185075125053422, guid: 6453c39b268c70b4bbe4b94670b93120, type: 3}
+      propertyPath: m_AABB.m_Center.z
+      value: 0.009115884
+      objectReference: {fileID: 0}
+    - target: {fileID: -3887185075125053422, guid: 6453c39b268c70b4bbe4b94670b93120, type: 3}
+      propertyPath: m_AABB.m_Extent.x
+      value: 0.0041904477
+      objectReference: {fileID: 0}
+    - target: {fileID: -3887185075125053422, guid: 6453c39b268c70b4bbe4b94670b93120, type: 3}
+      propertyPath: m_AABB.m_Extent.y
+      value: 0.002325424
+      objectReference: {fileID: 0}
+    - target: {fileID: -3887185075125053422, guid: 6453c39b268c70b4bbe4b94670b93120, type: 3}
+      propertyPath: m_AABB.m_Extent.z
+      value: 0.009142749
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -21917,7 +21921,7 @@ GameObject:
   - component: {fileID: 256590535}
   - component: {fileID: 256590538}
   - component: {fileID: 256590537}
-  - component: {fileID: 256590536}
+  - component: {fileID: 256590539}
   m_Layer: 0
   m_Name: Wall.069
   m_TagString: Untagged
@@ -21940,27 +21944,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 780479254}
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 159.734}
---- !u!65 &256590536
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 256590534}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.0030000026, y: 0.020000018, z: 0.03}
-  m_Center: {x: 0.00038775784, y: -0.0020135026, z: -0.000027367912}
 --- !u!23 &256590537
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -22018,6 +22001,27 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 256590534}
   m_Mesh: {fileID: -6943859952640626939, guid: c97cf6e8af4788143a8d9022dcc68ad3, type: 3}
+--- !u!65 &256590539
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 256590534}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.3000004, y: 2.000003, z: 3.0000012}
+  m_Center: {x: 0.03877579, y: -0.20135032, z: -0.002736521}
 --- !u!1 &256870296
 GameObject:
   m_ObjectHideFlags: 0
@@ -22403,7 +22407,7 @@ GameObject:
   - component: {fileID: 262846957}
   - component: {fileID: 262846960}
   - component: {fileID: 262846959}
-  - component: {fileID: 262846958}
+  - component: {fileID: 262846961}
   m_Layer: 0
   m_Name: Wall.070
   m_TagString: Untagged
@@ -22426,27 +22430,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 780479254}
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 159.734}
---- !u!65 &262846958
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 262846956}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.0030000026, y: 0.020000082, z: 0.03}
-  m_Center: {x: 0.00035083725, y: 0.001909215, z: -0.00027347816}
 --- !u!23 &262846959
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -22504,6 +22487,27 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 262846956}
   m_Mesh: {fileID: 5772695727060187135, guid: c97cf6e8af4788143a8d9022dcc68ad3, type: 3}
+--- !u!65 &262846961
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 262846956}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.3000004, y: 2.0000093, z: 3.0000012}
+  m_Center: {x: 0.035083756, y: 0.19092129, z: -0.027347853}
 --- !u!1 &262944663
 GameObject:
   m_ObjectHideFlags: 0
@@ -36739,30 +36743,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1696856800}
     m_Modifications:
-    - target: {fileID: -3887185075125053422, guid: 6453c39b268c70b4bbe4b94670b93120, type: 3}
-      propertyPath: m_DirtyAABB
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -3887185075125053422, guid: 6453c39b268c70b4bbe4b94670b93120, type: 3}
-      propertyPath: m_AABB.m_Center.y
-      value: -0.00036873168
-      objectReference: {fileID: 0}
-    - target: {fileID: -3887185075125053422, guid: 6453c39b268c70b4bbe4b94670b93120, type: 3}
-      propertyPath: m_AABB.m_Center.z
-      value: 0.009115884
-      objectReference: {fileID: 0}
-    - target: {fileID: -3887185075125053422, guid: 6453c39b268c70b4bbe4b94670b93120, type: 3}
-      propertyPath: m_AABB.m_Extent.x
-      value: 0.0041904477
-      objectReference: {fileID: 0}
-    - target: {fileID: -3887185075125053422, guid: 6453c39b268c70b4bbe4b94670b93120, type: 3}
-      propertyPath: m_AABB.m_Extent.y
-      value: 0.002325424
-      objectReference: {fileID: 0}
-    - target: {fileID: -3887185075125053422, guid: 6453c39b268c70b4bbe4b94670b93120, type: 3}
-      propertyPath: m_AABB.m_Extent.z
-      value: 0.009142749
-      objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9edf30911efe7ce4092d7313a66b8cee, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
@@ -36835,6 +36815,30 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 7bace31c96831be4899ab5627d6104e0, type: 2}
+    - target: {fileID: -3887185075125053422, guid: 6453c39b268c70b4bbe4b94670b93120, type: 3}
+      propertyPath: m_DirtyAABB
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -3887185075125053422, guid: 6453c39b268c70b4bbe4b94670b93120, type: 3}
+      propertyPath: m_AABB.m_Center.y
+      value: -0.00036873168
+      objectReference: {fileID: 0}
+    - target: {fileID: -3887185075125053422, guid: 6453c39b268c70b4bbe4b94670b93120, type: 3}
+      propertyPath: m_AABB.m_Center.z
+      value: 0.009115884
+      objectReference: {fileID: 0}
+    - target: {fileID: -3887185075125053422, guid: 6453c39b268c70b4bbe4b94670b93120, type: 3}
+      propertyPath: m_AABB.m_Extent.x
+      value: 0.0041904477
+      objectReference: {fileID: 0}
+    - target: {fileID: -3887185075125053422, guid: 6453c39b268c70b4bbe4b94670b93120, type: 3}
+      propertyPath: m_AABB.m_Extent.y
+      value: 0.002325424
+      objectReference: {fileID: 0}
+    - target: {fileID: -3887185075125053422, guid: 6453c39b268c70b4bbe4b94670b93120, type: 3}
+      propertyPath: m_AABB.m_Extent.z
+      value: 0.009142749
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -37968,7 +37972,7 @@ MonoBehaviour:
   questToGive: {fileID: 11400000, guid: 9fd8a20d11049fb4d9a415842612f515, type: 2}
   questOfferDialogue: {fileID: 11400000, guid: b30bf751dd89fb74eb6a2ebf6057c49d, type: 2}
   endQuestDialogue: {fileID: 0}
-  busyQuestDialogue: {fileID: 0}
+  busyQuestDialogue: {fileID: 11400000, guid: 07d77b4c2e98dc44d9ded6ec434fd00d, type: 2}
   activeQuestDialogue: {fileID: 0}
   relatedQuest: {fileID: 0}
   beforeQuestDialogue: {fileID: 0}
@@ -39371,30 +39375,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1985283302}
     m_Modifications:
-    - target: {fileID: -3887185075125053422, guid: 6453c39b268c70b4bbe4b94670b93120, type: 3}
-      propertyPath: m_DirtyAABB
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -3887185075125053422, guid: 6453c39b268c70b4bbe4b94670b93120, type: 3}
-      propertyPath: m_AABB.m_Center.y
-      value: -0.00036873168
-      objectReference: {fileID: 0}
-    - target: {fileID: -3887185075125053422, guid: 6453c39b268c70b4bbe4b94670b93120, type: 3}
-      propertyPath: m_AABB.m_Center.z
-      value: 0.009115884
-      objectReference: {fileID: 0}
-    - target: {fileID: -3887185075125053422, guid: 6453c39b268c70b4bbe4b94670b93120, type: 3}
-      propertyPath: m_AABB.m_Extent.x
-      value: 0.0041904477
-      objectReference: {fileID: 0}
-    - target: {fileID: -3887185075125053422, guid: 6453c39b268c70b4bbe4b94670b93120, type: 3}
-      propertyPath: m_AABB.m_Extent.y
-      value: 0.002325424
-      objectReference: {fileID: 0}
-    - target: {fileID: -3887185075125053422, guid: 6453c39b268c70b4bbe4b94670b93120, type: 3}
-      propertyPath: m_AABB.m_Extent.z
-      value: 0.009142749
-      objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9edf30911efe7ce4092d7313a66b8cee, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
@@ -39467,6 +39447,30 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 7bace31c96831be4899ab5627d6104e0, type: 2}
+    - target: {fileID: -3887185075125053422, guid: 6453c39b268c70b4bbe4b94670b93120, type: 3}
+      propertyPath: m_DirtyAABB
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -3887185075125053422, guid: 6453c39b268c70b4bbe4b94670b93120, type: 3}
+      propertyPath: m_AABB.m_Center.y
+      value: -0.00036873168
+      objectReference: {fileID: 0}
+    - target: {fileID: -3887185075125053422, guid: 6453c39b268c70b4bbe4b94670b93120, type: 3}
+      propertyPath: m_AABB.m_Center.z
+      value: 0.009115884
+      objectReference: {fileID: 0}
+    - target: {fileID: -3887185075125053422, guid: 6453c39b268c70b4bbe4b94670b93120, type: 3}
+      propertyPath: m_AABB.m_Extent.x
+      value: 0.0041904477
+      objectReference: {fileID: 0}
+    - target: {fileID: -3887185075125053422, guid: 6453c39b268c70b4bbe4b94670b93120, type: 3}
+      propertyPath: m_AABB.m_Extent.y
+      value: 0.002325424
+      objectReference: {fileID: 0}
+    - target: {fileID: -3887185075125053422, guid: 6453c39b268c70b4bbe4b94670b93120, type: 3}
+      propertyPath: m_AABB.m_Extent.z
+      value: 0.009142749
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -56573,7 +56577,7 @@ MonoBehaviour:
   questToGive: {fileID: 11400000, guid: be1a5010272821341a2657d5915a54cf, type: 2}
   questOfferDialogue: {fileID: 11400000, guid: 176840e57913e194cb932b4a27cc0f75, type: 2}
   endQuestDialogue: {fileID: 0}
-  busyQuestDialogue: {fileID: 0}
+  busyQuestDialogue: {fileID: 11400000, guid: 07d77b4c2e98dc44d9ded6ec434fd00d, type: 2}
   activeQuestDialogue: {fileID: 0}
   relatedQuest: {fileID: 0}
   beforeQuestDialogue: {fileID: 0}
@@ -58791,7 +58795,7 @@ MonoBehaviour:
   questToGive: {fileID: 11400000, guid: 55f4ef89c0c3cf244b02e7db688a9cad, type: 2}
   questOfferDialogue: {fileID: 11400000, guid: 9d7021e4e1ed26d48ba98706deee9e7e, type: 2}
   endQuestDialogue: {fileID: 0}
-  busyQuestDialogue: {fileID: 0}
+  busyQuestDialogue: {fileID: 11400000, guid: 07d77b4c2e98dc44d9ded6ec434fd00d, type: 2}
   activeQuestDialogue: {fileID: 0}
   relatedQuest: {fileID: 0}
   beforeQuestDialogue: {fileID: 0}
@@ -66880,18 +66884,39 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 5b31b8b640a111d42ae572c610819e56, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 5b31b8b640a111d42ae572c610819e56, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: b1d25a1cb39862e4b8a27de01c8bed04, type: 2}
     - target: {fileID: 919132149155446097, guid: 5b31b8b640a111d42ae572c610819e56, type: 3}
       propertyPath: m_Name
       value: PROP_012_AirLockButton
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 5b31b8b640a111d42ae572c610819e56, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 5b31b8b640a111d42ae572c610819e56, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 2147483647
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 5b31b8b640a111d42ae572c610819e56, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 967570960}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 5b31b8b640a111d42ae572c610819e56, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 967570959}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 5b31b8b640a111d42ae572c610819e56, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 967570958}
   m_SourcePrefab: {fileID: 100100000, guid: 5b31b8b640a111d42ae572c610819e56, type: 3}
 --- !u!1 &706782151
 GameObject:
@@ -66987,7 +67012,7 @@ MonoBehaviour:
   questToGive: {fileID: 11400000, guid: 6674c5365b84acb418eb3cb4fe3d4fee, type: 2}
   questOfferDialogue: {fileID: 11400000, guid: ec351bb57d024a949a030a48b1a414f6, type: 2}
   endQuestDialogue: {fileID: 0}
-  busyQuestDialogue: {fileID: 0}
+  busyQuestDialogue: {fileID: 11400000, guid: 07d77b4c2e98dc44d9ded6ec434fd00d, type: 2}
   activeQuestDialogue: {fileID: 0}
   relatedQuest: {fileID: 0}
   beforeQuestDialogue: {fileID: 0}
@@ -69176,7 +69201,7 @@ MonoBehaviour:
   questToGive: {fileID: 11400000, guid: 210b44e793260ba4090a390bfb6bf77c, type: 2}
   questOfferDialogue: {fileID: 11400000, guid: ff17ae468281f8045a3b8467ba7a8f55, type: 2}
   endQuestDialogue: {fileID: 0}
-  busyQuestDialogue: {fileID: 0}
+  busyQuestDialogue: {fileID: 11400000, guid: 07d77b4c2e98dc44d9ded6ec434fd00d, type: 2}
   activeQuestDialogue: {fileID: 11400000, guid: 225c5584554372b43b9004f9313cce9c, type: 2}
   relatedQuest: {fileID: 0}
   beforeQuestDialogue: {fileID: 0}
@@ -74381,7 +74406,7 @@ MonoBehaviour:
   questToGive: {fileID: 11400000, guid: 617c6ca5081173e4ea1bccf7a4fdbdf6, type: 2}
   questOfferDialogue: {fileID: 11400000, guid: 09ffaa28e985425428f84cac56ab66bf, type: 2}
   endQuestDialogue: {fileID: 0}
-  busyQuestDialogue: {fileID: 0}
+  busyQuestDialogue: {fileID: 11400000, guid: 07d77b4c2e98dc44d9ded6ec434fd00d, type: 2}
   activeQuestDialogue: {fileID: 11400000, guid: 2273209abbba6d0419faf6595ef30cce, type: 2}
   relatedQuest: {fileID: 0}
   beforeQuestDialogue: {fileID: 0}
@@ -78005,30 +78030,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 452130302}
     m_Modifications:
-    - target: {fileID: -3887185075125053422, guid: 6453c39b268c70b4bbe4b94670b93120, type: 3}
-      propertyPath: m_DirtyAABB
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -3887185075125053422, guid: 6453c39b268c70b4bbe4b94670b93120, type: 3}
-      propertyPath: m_AABB.m_Center.y
-      value: -0.00036873168
-      objectReference: {fileID: 0}
-    - target: {fileID: -3887185075125053422, guid: 6453c39b268c70b4bbe4b94670b93120, type: 3}
-      propertyPath: m_AABB.m_Center.z
-      value: 0.009115884
-      objectReference: {fileID: 0}
-    - target: {fileID: -3887185075125053422, guid: 6453c39b268c70b4bbe4b94670b93120, type: 3}
-      propertyPath: m_AABB.m_Extent.x
-      value: 0.0041904477
-      objectReference: {fileID: 0}
-    - target: {fileID: -3887185075125053422, guid: 6453c39b268c70b4bbe4b94670b93120, type: 3}
-      propertyPath: m_AABB.m_Extent.y
-      value: 0.002325424
-      objectReference: {fileID: 0}
-    - target: {fileID: -3887185075125053422, guid: 6453c39b268c70b4bbe4b94670b93120, type: 3}
-      propertyPath: m_AABB.m_Extent.z
-      value: 0.009142749
-      objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9edf30911efe7ce4092d7313a66b8cee, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
@@ -78101,6 +78102,30 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 7bace31c96831be4899ab5627d6104e0, type: 2}
+    - target: {fileID: -3887185075125053422, guid: 6453c39b268c70b4bbe4b94670b93120, type: 3}
+      propertyPath: m_DirtyAABB
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -3887185075125053422, guid: 6453c39b268c70b4bbe4b94670b93120, type: 3}
+      propertyPath: m_AABB.m_Center.y
+      value: -0.00036873168
+      objectReference: {fileID: 0}
+    - target: {fileID: -3887185075125053422, guid: 6453c39b268c70b4bbe4b94670b93120, type: 3}
+      propertyPath: m_AABB.m_Center.z
+      value: 0.009115884
+      objectReference: {fileID: 0}
+    - target: {fileID: -3887185075125053422, guid: 6453c39b268c70b4bbe4b94670b93120, type: 3}
+      propertyPath: m_AABB.m_Extent.x
+      value: 0.0041904477
+      objectReference: {fileID: 0}
+    - target: {fileID: -3887185075125053422, guid: 6453c39b268c70b4bbe4b94670b93120, type: 3}
+      propertyPath: m_AABB.m_Extent.y
+      value: 0.002325424
+      objectReference: {fileID: 0}
+    - target: {fileID: -3887185075125053422, guid: 6453c39b268c70b4bbe4b94670b93120, type: 3}
+      propertyPath: m_AABB.m_Extent.z
+      value: 0.009142749
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -84044,7 +84069,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 904794073}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.15212105, y: -0.00000002028011, z: 0.0000000031213583, w: 0.9883619}
+  m_LocalRotation: {x: 0.1521234, y: 0, z: 0, w: 0.98836154}
   m_LocalPosition: {x: -0.018061023, y: 0.43669593, z: 0.00017356873}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -87447,7 +87472,7 @@ MonoBehaviour:
   questToGive: {fileID: 11400000, guid: bc9272da30293f0479b21f69690d0704, type: 2}
   questOfferDialogue: {fileID: 11400000, guid: 1011eef55b2a9664994ca7190bad2279, type: 2}
   endQuestDialogue: {fileID: 0}
-  busyQuestDialogue: {fileID: 0}
+  busyQuestDialogue: {fileID: 11400000, guid: 07d77b4c2e98dc44d9ded6ec434fd00d, type: 2}
   activeQuestDialogue: {fileID: 0}
   relatedQuest: {fileID: 0}
   beforeQuestDialogue: {fileID: 0}
@@ -89708,6 +89733,67 @@ Transform:
   m_Children: []
   m_Father: {fileID: 736414955}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &967570955 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 5b31b8b640a111d42ae572c610819e56, type: 3}
+  m_PrefabInstance: {fileID: 706748934}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &967570958
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 967570955}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 3.78, y: 1.7, z: 2.93}
+  m_Center: {x: -0.06203689, y: 0.000000024200526, z: -0.022591798}
+--- !u!114 &967570959
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 967570955}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04dc8ed07e5c17843bc16d084c2f948e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::InteractableObject
+  targetRenderer: {fileID: 0}
+  isActive: 1
+--- !u!65 &967570960
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 967570955}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.93, y: 0.93, z: 1.61}
+  m_Center: {x: -0.06203689, y: 0.000000024200526, z: -0.022591798}
 --- !u!1 &969122651 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 9edf30911efe7ce4092d7313a66b8cee, type: 3}
@@ -90555,7 +90641,7 @@ MonoBehaviour:
   questToGive: {fileID: 11400000, guid: 915a86e5380f771498760caec9aec921, type: 2}
   questOfferDialogue: {fileID: 11400000, guid: 0b03a9ab6828ec047bd559d6db6b54e6, type: 2}
   endQuestDialogue: {fileID: 0}
-  busyQuestDialogue: {fileID: 0}
+  busyQuestDialogue: {fileID: 11400000, guid: 07d77b4c2e98dc44d9ded6ec434fd00d, type: 2}
   activeQuestDialogue: {fileID: 0}
   relatedQuest: {fileID: 0}
   beforeQuestDialogue: {fileID: 0}
@@ -102426,7 +102512,7 @@ GameObject:
   - component: {fileID: 1079625790}
   - component: {fileID: 1079625793}
   - component: {fileID: 1079625792}
-  - component: {fileID: 1079625791}
+  - component: {fileID: 1079625794}
   m_Layer: 0
   m_Name: Wall.072
   m_TagString: Untagged
@@ -102449,27 +102535,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 780479254}
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 159.734}
---- !u!65 &1079625791
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1079625789}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.0030000026, y: 0.020000013, z: 0.03}
-  m_Center: {x: 0.00034615383, y: 0.000018380568, z: -0.00024758838}
 --- !u!23 &1079625792
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -102527,6 +102592,27 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1079625789}
   m_Mesh: {fileID: -9106844901980796895, guid: c97cf6e8af4788143a8d9022dcc68ad3, type: 3}
+--- !u!65 &1079625794
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1079625789}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.3000004, y: 2.0000026, z: 3.0000012}
+  m_Center: {x: 0.034615405, y: 0.0018380356, z: -0.02475882}
 --- !u!1 &1079694948
 GameObject:
   m_ObjectHideFlags: 0
@@ -105701,30 +105787,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 945186554}
     m_Modifications:
-    - target: {fileID: -3887185075125053422, guid: 6453c39b268c70b4bbe4b94670b93120, type: 3}
-      propertyPath: m_DirtyAABB
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -3887185075125053422, guid: 6453c39b268c70b4bbe4b94670b93120, type: 3}
-      propertyPath: m_AABB.m_Center.y
-      value: -0.00036873168
-      objectReference: {fileID: 0}
-    - target: {fileID: -3887185075125053422, guid: 6453c39b268c70b4bbe4b94670b93120, type: 3}
-      propertyPath: m_AABB.m_Center.z
-      value: 0.009115884
-      objectReference: {fileID: 0}
-    - target: {fileID: -3887185075125053422, guid: 6453c39b268c70b4bbe4b94670b93120, type: 3}
-      propertyPath: m_AABB.m_Extent.x
-      value: 0.0041904477
-      objectReference: {fileID: 0}
-    - target: {fileID: -3887185075125053422, guid: 6453c39b268c70b4bbe4b94670b93120, type: 3}
-      propertyPath: m_AABB.m_Extent.y
-      value: 0.002325424
-      objectReference: {fileID: 0}
-    - target: {fileID: -3887185075125053422, guid: 6453c39b268c70b4bbe4b94670b93120, type: 3}
-      propertyPath: m_AABB.m_Extent.z
-      value: 0.009142749
-      objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9edf30911efe7ce4092d7313a66b8cee, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
@@ -105797,6 +105859,30 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 7bace31c96831be4899ab5627d6104e0, type: 2}
+    - target: {fileID: -3887185075125053422, guid: 6453c39b268c70b4bbe4b94670b93120, type: 3}
+      propertyPath: m_DirtyAABB
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -3887185075125053422, guid: 6453c39b268c70b4bbe4b94670b93120, type: 3}
+      propertyPath: m_AABB.m_Center.y
+      value: -0.00036873168
+      objectReference: {fileID: 0}
+    - target: {fileID: -3887185075125053422, guid: 6453c39b268c70b4bbe4b94670b93120, type: 3}
+      propertyPath: m_AABB.m_Center.z
+      value: 0.009115884
+      objectReference: {fileID: 0}
+    - target: {fileID: -3887185075125053422, guid: 6453c39b268c70b4bbe4b94670b93120, type: 3}
+      propertyPath: m_AABB.m_Extent.x
+      value: 0.0041904477
+      objectReference: {fileID: 0}
+    - target: {fileID: -3887185075125053422, guid: 6453c39b268c70b4bbe4b94670b93120, type: 3}
+      propertyPath: m_AABB.m_Extent.y
+      value: 0.002325424
+      objectReference: {fileID: 0}
+    - target: {fileID: -3887185075125053422, guid: 6453c39b268c70b4bbe4b94670b93120, type: 3}
+      propertyPath: m_AABB.m_Extent.z
+      value: 0.009142749
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -106759,30 +106845,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1985283302}
     m_Modifications:
-    - target: {fileID: -3887185075125053422, guid: 6453c39b268c70b4bbe4b94670b93120, type: 3}
-      propertyPath: m_DirtyAABB
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -3887185075125053422, guid: 6453c39b268c70b4bbe4b94670b93120, type: 3}
-      propertyPath: m_AABB.m_Center.y
-      value: -0.00036873168
-      objectReference: {fileID: 0}
-    - target: {fileID: -3887185075125053422, guid: 6453c39b268c70b4bbe4b94670b93120, type: 3}
-      propertyPath: m_AABB.m_Center.z
-      value: 0.009115884
-      objectReference: {fileID: 0}
-    - target: {fileID: -3887185075125053422, guid: 6453c39b268c70b4bbe4b94670b93120, type: 3}
-      propertyPath: m_AABB.m_Extent.x
-      value: 0.0041904477
-      objectReference: {fileID: 0}
-    - target: {fileID: -3887185075125053422, guid: 6453c39b268c70b4bbe4b94670b93120, type: 3}
-      propertyPath: m_AABB.m_Extent.y
-      value: 0.002325424
-      objectReference: {fileID: 0}
-    - target: {fileID: -3887185075125053422, guid: 6453c39b268c70b4bbe4b94670b93120, type: 3}
-      propertyPath: m_AABB.m_Extent.z
-      value: 0.009142749
-      objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9edf30911efe7ce4092d7313a66b8cee, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
@@ -106855,6 +106917,30 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 7bace31c96831be4899ab5627d6104e0, type: 2}
+    - target: {fileID: -3887185075125053422, guid: 6453c39b268c70b4bbe4b94670b93120, type: 3}
+      propertyPath: m_DirtyAABB
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -3887185075125053422, guid: 6453c39b268c70b4bbe4b94670b93120, type: 3}
+      propertyPath: m_AABB.m_Center.y
+      value: -0.00036873168
+      objectReference: {fileID: 0}
+    - target: {fileID: -3887185075125053422, guid: 6453c39b268c70b4bbe4b94670b93120, type: 3}
+      propertyPath: m_AABB.m_Center.z
+      value: 0.009115884
+      objectReference: {fileID: 0}
+    - target: {fileID: -3887185075125053422, guid: 6453c39b268c70b4bbe4b94670b93120, type: 3}
+      propertyPath: m_AABB.m_Extent.x
+      value: 0.0041904477
+      objectReference: {fileID: 0}
+    - target: {fileID: -3887185075125053422, guid: 6453c39b268c70b4bbe4b94670b93120, type: 3}
+      propertyPath: m_AABB.m_Extent.y
+      value: 0.002325424
+      objectReference: {fileID: 0}
+    - target: {fileID: -3887185075125053422, guid: 6453c39b268c70b4bbe4b94670b93120, type: 3}
+      propertyPath: m_AABB.m_Extent.z
+      value: 0.009142749
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -107601,30 +107687,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 452130302}
     m_Modifications:
-    - target: {fileID: -3887185075125053422, guid: 6453c39b268c70b4bbe4b94670b93120, type: 3}
-      propertyPath: m_DirtyAABB
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -3887185075125053422, guid: 6453c39b268c70b4bbe4b94670b93120, type: 3}
-      propertyPath: m_AABB.m_Center.y
-      value: -0.00036873168
-      objectReference: {fileID: 0}
-    - target: {fileID: -3887185075125053422, guid: 6453c39b268c70b4bbe4b94670b93120, type: 3}
-      propertyPath: m_AABB.m_Center.z
-      value: 0.009115884
-      objectReference: {fileID: 0}
-    - target: {fileID: -3887185075125053422, guid: 6453c39b268c70b4bbe4b94670b93120, type: 3}
-      propertyPath: m_AABB.m_Extent.x
-      value: 0.0041904477
-      objectReference: {fileID: 0}
-    - target: {fileID: -3887185075125053422, guid: 6453c39b268c70b4bbe4b94670b93120, type: 3}
-      propertyPath: m_AABB.m_Extent.y
-      value: 0.002325424
-      objectReference: {fileID: 0}
-    - target: {fileID: -3887185075125053422, guid: 6453c39b268c70b4bbe4b94670b93120, type: 3}
-      propertyPath: m_AABB.m_Extent.z
-      value: 0.009142749
-      objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9edf30911efe7ce4092d7313a66b8cee, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
@@ -107697,6 +107759,30 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 7bace31c96831be4899ab5627d6104e0, type: 2}
+    - target: {fileID: -3887185075125053422, guid: 6453c39b268c70b4bbe4b94670b93120, type: 3}
+      propertyPath: m_DirtyAABB
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -3887185075125053422, guid: 6453c39b268c70b4bbe4b94670b93120, type: 3}
+      propertyPath: m_AABB.m_Center.y
+      value: -0.00036873168
+      objectReference: {fileID: 0}
+    - target: {fileID: -3887185075125053422, guid: 6453c39b268c70b4bbe4b94670b93120, type: 3}
+      propertyPath: m_AABB.m_Center.z
+      value: 0.009115884
+      objectReference: {fileID: 0}
+    - target: {fileID: -3887185075125053422, guid: 6453c39b268c70b4bbe4b94670b93120, type: 3}
+      propertyPath: m_AABB.m_Extent.x
+      value: 0.0041904477
+      objectReference: {fileID: 0}
+    - target: {fileID: -3887185075125053422, guid: 6453c39b268c70b4bbe4b94670b93120, type: 3}
+      propertyPath: m_AABB.m_Extent.y
+      value: 0.002325424
+      objectReference: {fileID: 0}
+    - target: {fileID: -3887185075125053422, guid: 6453c39b268c70b4bbe4b94670b93120, type: 3}
+      propertyPath: m_AABB.m_Extent.z
+      value: 0.009142749
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -113289,7 +113375,7 @@ MonoBehaviour:
   questToGive: {fileID: 11400000, guid: cbaa2ed09ae74e342b697e6bbad00f9e, type: 2}
   questOfferDialogue: {fileID: 11400000, guid: 013c70806b24c5a448798002f2272b75, type: 2}
   endQuestDialogue: {fileID: 0}
-  busyQuestDialogue: {fileID: 0}
+  busyQuestDialogue: {fileID: 11400000, guid: 07d77b4c2e98dc44d9ded6ec434fd00d, type: 2}
   activeQuestDialogue: {fileID: 0}
   relatedQuest: {fileID: 0}
   beforeQuestDialogue: {fileID: 0}
@@ -114862,7 +114948,7 @@ MonoBehaviour:
   questToGive: {fileID: 11400000, guid: cfaa2c084a9efd14fb70d51b58a6773c, type: 2}
   questOfferDialogue: {fileID: 11400000, guid: ee8b8bd4fde4ae6478991a51b89a94a3, type: 2}
   endQuestDialogue: {fileID: 0}
-  busyQuestDialogue: {fileID: 0}
+  busyQuestDialogue: {fileID: 11400000, guid: 07d77b4c2e98dc44d9ded6ec434fd00d, type: 2}
   activeQuestDialogue: {fileID: 0}
   relatedQuest: {fileID: 0}
   beforeQuestDialogue: {fileID: 0}
@@ -115090,7 +115176,7 @@ MonoBehaviour:
   questToGive: {fileID: 11400000, guid: 6a4f6525c8a520e418f0236ac2b4a66e, type: 2}
   questOfferDialogue: {fileID: 11400000, guid: 5d906a4027fac9e4599721ff048a4f92, type: 2}
   endQuestDialogue: {fileID: 0}
-  busyQuestDialogue: {fileID: 0}
+  busyQuestDialogue: {fileID: 11400000, guid: 07d77b4c2e98dc44d9ded6ec434fd00d, type: 2}
   activeQuestDialogue: {fileID: 0}
   relatedQuest: {fileID: 0}
   beforeQuestDialogue: {fileID: 0}
@@ -123660,7 +123746,7 @@ GameObject:
   - component: {fileID: 1325376324}
   - component: {fileID: 1325376327}
   - component: {fileID: 1325376326}
-  - component: {fileID: 1325376325}
+  - component: {fileID: 1325376328}
   m_Layer: 0
   m_Name: Wall.071
   m_TagString: Untagged
@@ -123683,27 +123769,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 780479254}
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 159.734}
---- !u!65 &1325376325
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1325376323}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.0030000026, y: 0.020000013, z: 0.03}
-  m_Center: {x: 0.00034615383, y: 0.000018380568, z: -0.00024758838}
 --- !u!23 &1325376326
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -123761,6 +123826,27 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1325376323}
   m_Mesh: {fileID: -9106844901980796895, guid: c97cf6e8af4788143a8d9022dcc68ad3, type: 3}
+--- !u!65 &1325376328
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1325376323}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.3000004, y: 2.0000026, z: 3.0000012}
+  m_Center: {x: 0.034615405, y: 0.001837082, z: -0.02475882}
 --- !u!1 &1326221127
 GameObject:
   m_ObjectHideFlags: 0
@@ -126742,7 +126828,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8556322607265366465, guid: 22a592a8bdca2c94fac3a32564678547, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8556322607265366465, guid: 22a592a8bdca2c94fac3a32564678547, type: 3}
       propertyPath: m_TagString
@@ -133001,30 +133087,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 945186554}
     m_Modifications:
-    - target: {fileID: -3887185075125053422, guid: 6453c39b268c70b4bbe4b94670b93120, type: 3}
-      propertyPath: m_DirtyAABB
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -3887185075125053422, guid: 6453c39b268c70b4bbe4b94670b93120, type: 3}
-      propertyPath: m_AABB.m_Center.y
-      value: -0.00036873168
-      objectReference: {fileID: 0}
-    - target: {fileID: -3887185075125053422, guid: 6453c39b268c70b4bbe4b94670b93120, type: 3}
-      propertyPath: m_AABB.m_Center.z
-      value: 0.009115884
-      objectReference: {fileID: 0}
-    - target: {fileID: -3887185075125053422, guid: 6453c39b268c70b4bbe4b94670b93120, type: 3}
-      propertyPath: m_AABB.m_Extent.x
-      value: 0.0041904477
-      objectReference: {fileID: 0}
-    - target: {fileID: -3887185075125053422, guid: 6453c39b268c70b4bbe4b94670b93120, type: 3}
-      propertyPath: m_AABB.m_Extent.y
-      value: 0.002325424
-      objectReference: {fileID: 0}
-    - target: {fileID: -3887185075125053422, guid: 6453c39b268c70b4bbe4b94670b93120, type: 3}
-      propertyPath: m_AABB.m_Extent.z
-      value: 0.009142749
-      objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9edf30911efe7ce4092d7313a66b8cee, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
@@ -133097,6 +133159,30 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 7bace31c96831be4899ab5627d6104e0, type: 2}
+    - target: {fileID: -3887185075125053422, guid: 6453c39b268c70b4bbe4b94670b93120, type: 3}
+      propertyPath: m_DirtyAABB
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -3887185075125053422, guid: 6453c39b268c70b4bbe4b94670b93120, type: 3}
+      propertyPath: m_AABB.m_Center.y
+      value: -0.00036873168
+      objectReference: {fileID: 0}
+    - target: {fileID: -3887185075125053422, guid: 6453c39b268c70b4bbe4b94670b93120, type: 3}
+      propertyPath: m_AABB.m_Center.z
+      value: 0.009115884
+      objectReference: {fileID: 0}
+    - target: {fileID: -3887185075125053422, guid: 6453c39b268c70b4bbe4b94670b93120, type: 3}
+      propertyPath: m_AABB.m_Extent.x
+      value: 0.0041904477
+      objectReference: {fileID: 0}
+    - target: {fileID: -3887185075125053422, guid: 6453c39b268c70b4bbe4b94670b93120, type: 3}
+      propertyPath: m_AABB.m_Extent.y
+      value: 0.002325424
+      objectReference: {fileID: 0}
+    - target: {fileID: -3887185075125053422, guid: 6453c39b268c70b4bbe4b94670b93120, type: 3}
+      propertyPath: m_AABB.m_Extent.z
+      value: 0.009142749
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -134438,7 +134524,7 @@ MonoBehaviour:
   questToGive: {fileID: 11400000, guid: 467fe04e8752d8c4780e910e0bb81985, type: 2}
   questOfferDialogue: {fileID: 11400000, guid: 5b77b05c885cd3144a841475c58e5f98, type: 2}
   endQuestDialogue: {fileID: 0}
-  busyQuestDialogue: {fileID: 0}
+  busyQuestDialogue: {fileID: 11400000, guid: 07d77b4c2e98dc44d9ded6ec434fd00d, type: 2}
   activeQuestDialogue: {fileID: 0}
   relatedQuest: {fileID: 0}
   beforeQuestDialogue: {fileID: 0}
@@ -139438,7 +139524,7 @@ MonoBehaviour:
   questToGive: {fileID: 11400000, guid: a926f653ce739474c8fed55eecaf6e5a, type: 2}
   questOfferDialogue: {fileID: 11400000, guid: baa69f439ccec0242b4502b93c62f038, type: 2}
   endQuestDialogue: {fileID: 0}
-  busyQuestDialogue: {fileID: 0}
+  busyQuestDialogue: {fileID: 11400000, guid: 07d77b4c2e98dc44d9ded6ec434fd00d, type: 2}
   activeQuestDialogue: {fileID: 0}
   relatedQuest: {fileID: 0}
   beforeQuestDialogue: {fileID: 0}
@@ -159921,7 +160007,7 @@ MonoBehaviour:
   questToGive: {fileID: 11400000, guid: ef1e0cf2c0044b7479d2fe60e62aad3a, type: 2}
   questOfferDialogue: {fileID: 11400000, guid: 1101190c3f02e794d970dcadf05336ce, type: 2}
   endQuestDialogue: {fileID: 0}
-  busyQuestDialogue: {fileID: 0}
+  busyQuestDialogue: {fileID: 11400000, guid: 07d77b4c2e98dc44d9ded6ec434fd00d, type: 2}
   activeQuestDialogue: {fileID: 0}
   relatedQuest: {fileID: 0}
   beforeQuestDialogue: {fileID: 0}
@@ -176457,7 +176543,7 @@ MonoBehaviour:
   questToGive: {fileID: 11400000, guid: 500ab4390e8450442aef3397c8a85989, type: 2}
   questOfferDialogue: {fileID: 11400000, guid: 1ca68601e21d0054a8b8883af3b0af93, type: 2}
   endQuestDialogue: {fileID: 0}
-  busyQuestDialogue: {fileID: 0}
+  busyQuestDialogue: {fileID: 11400000, guid: 07d77b4c2e98dc44d9ded6ec434fd00d, type: 2}
   activeQuestDialogue: {fileID: 0}
   relatedQuest: {fileID: 0}
   beforeQuestDialogue: {fileID: 0}
@@ -179799,7 +179885,7 @@ MonoBehaviour:
   questToGive: {fileID: 11400000, guid: af0bfe80d4fed724b89f4193ba93ef09, type: 2}
   questOfferDialogue: {fileID: 11400000, guid: c857dbce77fd6ff4fae03d4b81d099fc, type: 2}
   endQuestDialogue: {fileID: 0}
-  busyQuestDialogue: {fileID: 0}
+  busyQuestDialogue: {fileID: 11400000, guid: 07d77b4c2e98dc44d9ded6ec434fd00d, type: 2}
   activeQuestDialogue: {fileID: 0}
   relatedQuest: {fileID: 0}
   beforeQuestDialogue: {fileID: 0}
@@ -189999,7 +190085,7 @@ MonoBehaviour:
   questToGive: {fileID: 11400000, guid: 9df9fb59498ef4a4a9fd8a13d454de0a, type: 2}
   questOfferDialogue: {fileID: 11400000, guid: a70ee0d9040f6344cb4801e8c49a6a7a, type: 2}
   endQuestDialogue: {fileID: 0}
-  busyQuestDialogue: {fileID: 0}
+  busyQuestDialogue: {fileID: 11400000, guid: 07d77b4c2e98dc44d9ded6ec434fd00d, type: 2}
   activeQuestDialogue: {fileID: 0}
   relatedQuest: {fileID: 0}
   beforeQuestDialogue: {fileID: 0}
@@ -210021,7 +210107,7 @@ MonoBehaviour:
   questToGive: {fileID: 11400000, guid: b7e16c461154e4f4384406ad7dffddb1, type: 2}
   questOfferDialogue: {fileID: 11400000, guid: 87babbfbf7152824da53473b9a5d46d5, type: 2}
   endQuestDialogue: {fileID: 0}
-  busyQuestDialogue: {fileID: 0}
+  busyQuestDialogue: {fileID: 11400000, guid: 07d77b4c2e98dc44d9ded6ec434fd00d, type: 2}
   activeQuestDialogue: {fileID: 0}
   relatedQuest: {fileID: 0}
   beforeQuestDialogue: {fileID: 0}
@@ -213772,30 +213858,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1985283302}
     m_Modifications:
-    - target: {fileID: -3887185075125053422, guid: 6453c39b268c70b4bbe4b94670b93120, type: 3}
-      propertyPath: m_DirtyAABB
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -3887185075125053422, guid: 6453c39b268c70b4bbe4b94670b93120, type: 3}
-      propertyPath: m_AABB.m_Center.y
-      value: -0.00036873168
-      objectReference: {fileID: 0}
-    - target: {fileID: -3887185075125053422, guid: 6453c39b268c70b4bbe4b94670b93120, type: 3}
-      propertyPath: m_AABB.m_Center.z
-      value: 0.009115884
-      objectReference: {fileID: 0}
-    - target: {fileID: -3887185075125053422, guid: 6453c39b268c70b4bbe4b94670b93120, type: 3}
-      propertyPath: m_AABB.m_Extent.x
-      value: 0.0041904477
-      objectReference: {fileID: 0}
-    - target: {fileID: -3887185075125053422, guid: 6453c39b268c70b4bbe4b94670b93120, type: 3}
-      propertyPath: m_AABB.m_Extent.y
-      value: 0.002325424
-      objectReference: {fileID: 0}
-    - target: {fileID: -3887185075125053422, guid: 6453c39b268c70b4bbe4b94670b93120, type: 3}
-      propertyPath: m_AABB.m_Extent.z
-      value: 0.009142749
-      objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9edf30911efe7ce4092d7313a66b8cee, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
@@ -213868,6 +213930,30 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 7bace31c96831be4899ab5627d6104e0, type: 2}
+    - target: {fileID: -3887185075125053422, guid: 6453c39b268c70b4bbe4b94670b93120, type: 3}
+      propertyPath: m_DirtyAABB
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -3887185075125053422, guid: 6453c39b268c70b4bbe4b94670b93120, type: 3}
+      propertyPath: m_AABB.m_Center.y
+      value: -0.00036873168
+      objectReference: {fileID: 0}
+    - target: {fileID: -3887185075125053422, guid: 6453c39b268c70b4bbe4b94670b93120, type: 3}
+      propertyPath: m_AABB.m_Center.z
+      value: 0.009115884
+      objectReference: {fileID: 0}
+    - target: {fileID: -3887185075125053422, guid: 6453c39b268c70b4bbe4b94670b93120, type: 3}
+      propertyPath: m_AABB.m_Extent.x
+      value: 0.0041904477
+      objectReference: {fileID: 0}
+    - target: {fileID: -3887185075125053422, guid: 6453c39b268c70b4bbe4b94670b93120, type: 3}
+      propertyPath: m_AABB.m_Extent.y
+      value: 0.002325424
+      objectReference: {fileID: 0}
+    - target: {fileID: -3887185075125053422, guid: 6453c39b268c70b4bbe4b94670b93120, type: 3}
+      propertyPath: m_AABB.m_Extent.z
+      value: 0.009142749
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -214098,7 +214184,7 @@ GameObject:
   - component: {fileID: 2109713365}
   - component: {fileID: 2109713368}
   - component: {fileID: 2109713367}
-  - component: {fileID: 2109713366}
+  - component: {fileID: 2109713369}
   m_Layer: 0
   m_Name: Wall.106
   m_TagString: Untagged
@@ -214121,27 +214207,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 780479254}
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 159.734}
---- !u!65 &2109713366
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2109713364}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.0030000026, y: 0.020000013, z: 0.03}
-  m_Center: {x: 0.00034615383, y: 0.000018380568, z: -0.00024758838}
 --- !u!23 &2109713367
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -214199,6 +214264,27 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2109713364}
   m_Mesh: {fileID: -9106844901980796895, guid: c97cf6e8af4788143a8d9022dcc68ad3, type: 3}
+--- !u!65 &2109713369
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2109713364}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.3000004, y: 2.0000026, z: 3.0000012}
+  m_Center: {x: 0.034615405, y: 0.0018389893, z: -0.02475882}
 --- !u!1 &2112488127
 GameObject:
   m_ObjectHideFlags: 0
@@ -215353,7 +215439,7 @@ MonoBehaviour:
   questToGive: {fileID: 11400000, guid: ab6f58e627239804ab28735f730bae9d, type: 2}
   questOfferDialogue: {fileID: 11400000, guid: 3b88242b02f6cf44582f721f895fbcba, type: 2}
   endQuestDialogue: {fileID: 0}
-  busyQuestDialogue: {fileID: 0}
+  busyQuestDialogue: {fileID: 11400000, guid: 07d77b4c2e98dc44d9ded6ec434fd00d, type: 2}
   activeQuestDialogue: {fileID: 0}
   relatedQuest: {fileID: 0}
   beforeQuestDialogue: {fileID: 0}
@@ -215821,7 +215907,7 @@ MonoBehaviour:
   questToGive: {fileID: 11400000, guid: 285b6dab531edd947b9430458cd8902c, type: 2}
   questOfferDialogue: {fileID: 11400000, guid: ab8bb01972f81424992816951c99f578, type: 2}
   endQuestDialogue: {fileID: 0}
-  busyQuestDialogue: {fileID: 0}
+  busyQuestDialogue: {fileID: 11400000, guid: 07d77b4c2e98dc44d9ded6ec434fd00d, type: 2}
   activeQuestDialogue: {fileID: 0}
   relatedQuest: {fileID: 0}
   beforeQuestDialogue: {fileID: 0}
@@ -234970,7 +235056,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3648156696225298345, guid: c7614202510344d4a8a32b60e6d9778d, type: 3}
       propertyPath: m_Size.x
-      value: 0.91
+      value: 0.83
+      objectReference: {fileID: 0}
+    - target: {fileID: 3648156696225298345, guid: c7614202510344d4a8a32b60e6d9778d, type: 3}
+      propertyPath: m_Size.y
+      value: 2.74
       objectReference: {fileID: 0}
     - target: {fileID: 3648156696225298345, guid: c7614202510344d4a8a32b60e6d9778d, type: 3}
       propertyPath: m_IsTrigger
@@ -240878,7 +240968,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8556322607265366465, guid: 22a592a8bdca2c94fac3a32564678547, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8556322607265366465, guid: 22a592a8bdca2c94fac3a32564678547, type: 3}
       propertyPath: m_TagString
