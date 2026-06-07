@@ -6,6 +6,8 @@ public class DialogueManager : MonoBehaviour
     public DialogueUI ui;
     private Node currentNode;
     public bool isActive;
+    public AudioSource audioSource;
+    public AudioClip buttonChoiceSfx;
 
     void Awake()
     {
@@ -46,5 +48,6 @@ public class DialogueManager : MonoBehaviour
         }
         currentNode = choice.nextNode;
         ui.Show(currentNode);
+        audioSource.PlayOneShot(buttonChoiceSfx);
     }
 }

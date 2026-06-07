@@ -13,9 +13,11 @@ public class QuestUI : MonoBehaviour
     [SerializeField]
     private Image icon;
 
+    [SerializeField] private Animator anim;
+
     public void ShowQuest(Quest questToShow, int objectiveIndex)
     {
-        rootPanel.SetActive(true);
+        anim.SetBool("Show", true);
         questName.text = questToShow.questName;
         objectiveDesc.text = questToShow.objectives[objectiveIndex].description;
         icon.sprite = questToShow.questIcon;
@@ -23,7 +25,7 @@ public class QuestUI : MonoBehaviour
 
     public void HideQuest()
     {
-        rootPanel.SetActive(false);
+        anim.SetBool("Show", false);
     }
 
     private void Start()

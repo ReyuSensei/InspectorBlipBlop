@@ -4452,6 +4452,7 @@ GameObject:
   - component: {fileID: 1253947604}
   - component: {fileID: 1253947603}
   - component: {fileID: 1253947607}
+  - component: {fileID: 1253947608}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -4566,6 +4567,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1253947608
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1253947600}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb61f981fb7d43a40a8a8421fdd04361, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SceneAfterAnimation
 --- !u!1 &1324761875
 GameObject:
   m_ObjectHideFlags: 0
@@ -4904,7 +4917,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
+    rgba: 16777215
   m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3

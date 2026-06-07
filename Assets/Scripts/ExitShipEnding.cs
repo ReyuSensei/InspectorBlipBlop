@@ -1,16 +1,16 @@
+using System.Collections.Generic;
 using UnityEngine;
-
-public class ExitShipEnding : MonoBehaviour
+using UnityEngine.SceneManagement;
+public class ExitShipEnding : MonoBehaviour, IInteractable
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public GameObject finalBPanel;
+    public void Interact()
     {
-        
+        finalBPanel.SetActive(true);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void EndingB()
     {
-        
+        SceneManager.LoadScene("EndB");
     }
 }
