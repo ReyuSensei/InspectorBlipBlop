@@ -278,8 +278,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'The evidence gathered leaves no room for doubt: each and every member
-    played a part in the crime against their own crewmate.'
+  m_text: The case for the death of Felix, member of The Rolling Asteroids, remains
+    open. The band has cancelled the rest of the tour.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 67763ce4ba2c6ff438fb9993f71a1c41, type: 2}
   m_sharedMaterial: {fileID: 4643824774981988388, guid: 67763ce4ba2c6ff438fb9993f71a1c41, type: 2}
@@ -681,9 +681,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: The case closes with a bitter truth. There were no pirate attacks, nor
-    any life support system failures. It was a cold-blooded murder, an inside job
-    where all honor among the crew completely dissolved.
+  m_text: '"That was a madhouse. I couldn''t bare to stay there one more minute."'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 67763ce4ba2c6ff438fb9993f71a1c41, type: 2}
   m_sharedMaterial: {fileID: 4643824774981988388, guid: 67763ce4ba2c6ff438fb9993f71a1c41, type: 2}
@@ -1084,7 +1082,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Case Closed.
+  m_text: Case Unsolved
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 67763ce4ba2c6ff438fb9993f71a1c41, type: 2}
   m_sharedMaterial: {fileID: 4643824774981988388, guid: 67763ce4ba2c6ff438fb9993f71a1c41, type: 2}
@@ -1220,7 +1218,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Thanks for playing!
+  m_text: 'Thanks for playing!
+
+    (You may wanna do that again, but without walking
+    out halfway through.)'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 67763ce4ba2c6ff438fb9993f71a1c41, type: 2}
   m_sharedMaterial: {fileID: 4643824774981988388, guid: 67763ce4ba2c6ff438fb9993f71a1c41, type: 2}
@@ -1356,15 +1357,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 0.6784314, g: 0.6784314, b: 0.6784314, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 7b7b40aa9da48a441b399b1ff501d656, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -1539,9 +1540,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: The members of the infamous band "The Rolling Asteroids" will no longer
-    cruise the outer belt. Their final destination wasn't a luxury space station,
-    but the maximum-security cells of the sector.
+  m_text: The well-known Inspector Blip-Blop walked out of a case for the first time.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 67763ce4ba2c6ff438fb9993f71a1c41, type: 2}
   m_sharedMaterial: {fileID: 4643824774981988388, guid: 67763ce4ba2c6ff438fb9993f71a1c41, type: 2}
